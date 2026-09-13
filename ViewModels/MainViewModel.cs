@@ -35,7 +35,7 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty] private string selectedLanguageCode;
     [ObservableProperty] private string settingsMessage = "";
 
-    public ObservableCollection<int> WeekValues { get; } = new();
+    public ObservableCollection<WeekStatItem> WeekValues { get; } = new();
     public ObservableCollection<ExerciseDisplayItem> Exercises { get; } = new();
     public event Action? BreakPresentationRequested;
     public IReadOnlyList<LanguageOption> Languages { get; } =
@@ -151,7 +151,14 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand] private void Restart() => _timer.Reset();
-    [RelayCommand] private async Task CompleteAsync() { await RecordAsync(BreakResult.Completed); IsBreakVisible = false; _timer.FinishBreak(); }
+    [RelayCommand]
+    private async Task CompleteAsync()
+    {
+        await RecordAsync(BreakResult.Completed);
+        SelectNextExercise();
+        IsBreakVisible = false;
+        _timer.FinishBreak();
+    }
     [RelayCommand]
     private async Task SkipAsync()
     {
@@ -167,7 +174,7 @@ public partial class MainViewModel : ObservableObject
     {
         try
         {
-            _settings.Current.ReminderMinutes = Math.Clamp(ReminderMinutes, 1, 180);
+            _settings.Current.ReminderMinutes = Math.Clamp(ReminderMinutes, 1, 60);
             _settings.Current.SoundEnabled = SoundEnabled;
             _settings.Current.StartWithWindows = StartWithWindows;
             _settings.Current.EyeRuleEnabled = EyeRuleEnabled;
@@ -234,6 +241,11 @@ public partial class MainViewModel : ObservableObject
             var day = today.AddDays(-i);
             values.Add(await db.BreakRecords.CountAsync(x => x.OccurredAt >= day && x.OccurredAt < day.AddDays(1) && x.Result == BreakResult.Completed));
         }
-        WpfApplication.Current.Dispatcher.Invoke(() => { WeekValues.Clear(); foreach (var value in values) WeekValues.Add(value); });
+        WpfApplication.Current.Dispatcher.Invoke(() =>
+        {
+            WeekValues.Clear();
+            for (var index = 0; index < values.Count; index++)
+                WeekValues.Add(new WeekStatItem(values[index], index == values.Count - 1));
+        });
     }
 }

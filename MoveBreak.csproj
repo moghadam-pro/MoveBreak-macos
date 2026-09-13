@@ -11,7 +11,7 @@
     <AssemblyName>MoveBreak</AssemblyName>
     <Product>MoveBreak</Product>
     <Description>Offline movement and eye-break reminders for Windows.</Description>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
@@ -21,5 +21,6 @@
   <ItemGroup>
     <Resource Include="Assets\Exercises\*.png" />
     <Resource Include="Assets\MoveBreak.ico" />
+    <Resource Include="Assets\MoveBreak.png" />
   </ItemGroup>
 </Project>

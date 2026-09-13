@@ -9,3 +9,5 @@ public sealed record ExerciseDisplayItem(
     ExerciseCategory Category,
     int DurationSeconds,
     string ImagePath);
+
+public sealed record WeekStatItem(int Value, bool IsToday);

@@ -8,14 +8,14 @@
   <system:String x:Key="Skip">رد کردن</system:String>
   <system:String x:Key="LastSevenDays">هفت روز اخیر</system:String>
   <system:String x:Key="NextExercise">تمرین پیشنهادی بعدی</system:String>
-  <system:String x:Key="ExerciseDuration">مدت حرکت: </system:String>
-  <system:String x:Key="Duration">مدت: </system:String>
-  <system:String x:Key="SuggestedDuration">مدت پیشنهادی: </system:String>
-  <system:String x:Key="Seconds"> ثانیه</system:String>
-  <system:String x:Key="Minutes"> دقیقه</system:String>
+  <system:String x:Key="ExerciseDuration">مدت حرکت:</system:String>
+  <system:String x:Key="Duration">مدت:</system:String>
+  <system:String x:Key="SuggestedDuration">مدت پیشنهادی:</system:String>
+  <system:String x:Key="Seconds">ثانیه</system:String>
+  <system:String x:Key="Minutes">دقیقه</system:String>
   <system:String x:Key="Today">امروز</system:String>
-  <system:String x:Key="CompletedBreaks">استراحت‌های انجام‌شده: </system:String>
-  <system:String x:Key="SittingTime">زمان نشستن امروز: </system:String>
+  <system:String x:Key="CompletedBreaks">استراحت‌های انجام‌شده:</system:String>
+  <system:String x:Key="SittingTime">زمان نشستن امروز:</system:String>
   <system:String x:Key="Scheduling">تنظیمات زمان‌بندی</system:String>
   <system:String x:Key="ReminderInterval">فاصله یادآوری (دقیقه)</system:String>
   <system:String x:Key="EyeRule">فعال‌بودن قانون ۲۰-۲۰-۲۰</system:String>
@@ -36,4 +36,5 @@
   <system:String x:Key="TrayOpen">باز کردن MoveBreak</system:String>
   <system:String x:Key="TrayPause">توقف / ادامه</system:String>
   <system:String x:Key="TrayExit">خروج</system:String>
+  <system:String x:Key="DevelopedBy">توسعه‌یافته توسط</system:String>
 </ResourceDictionary>

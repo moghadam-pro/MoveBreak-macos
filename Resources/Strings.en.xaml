@@ -8,14 +8,14 @@
   <system:String x:Key="Skip">Skip</system:String>
   <system:String x:Key="LastSevenDays">Last seven days</system:String>
   <system:String x:Key="NextExercise">Next suggested exercise</system:String>
-  <system:String x:Key="ExerciseDuration">Exercise duration: </system:String>
-  <system:String x:Key="Duration">Duration: </system:String>
-  <system:String x:Key="SuggestedDuration">Suggested duration: </system:String>
-  <system:String x:Key="Seconds"> seconds</system:String>
-  <system:String x:Key="Minutes"> minutes</system:String>
+  <system:String x:Key="ExerciseDuration">Exercise duration:</system:String>
+  <system:String x:Key="Duration">Duration:</system:String>
+  <system:String x:Key="SuggestedDuration">Suggested duration:</system:String>
+  <system:String x:Key="Seconds">seconds</system:String>
+  <system:String x:Key="Minutes">minutes</system:String>
   <system:String x:Key="Today">Today</system:String>
-  <system:String x:Key="CompletedBreaks">Completed breaks: </system:String>
-  <system:String x:Key="SittingTime">Sitting time today: </system:String>
+  <system:String x:Key="CompletedBreaks">Completed breaks:</system:String>
+  <system:String x:Key="SittingTime">Sitting time today:</system:String>
   <system:String x:Key="Scheduling">Schedule settings</system:String>
   <system:String x:Key="ReminderInterval">Reminder interval (minutes)</system:String>
   <system:String x:Key="EyeRule">Enable the 20-20-20 eye rule</system:String>
@@ -36,4 +36,5 @@
   <system:String x:Key="TrayOpen">Open MoveBreak</system:String>
   <system:String x:Key="TrayPause">Pause / Resume</system:String>
   <system:String x:Key="TrayExit">Exit</system:String>
+  <system:String x:Key="DevelopedBy">Developed by</system:String>
 </ResourceDictionary>
