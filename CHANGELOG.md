@@ -4,6 +4,8 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 
 ## [Unreleased]
 
+- Update the published beta.3 GitHub prerelease notes with verified artifact evidence, screenshot/documentation links, and licensing scope (2026-10-04).
+
 ### Documentation and open-source project foundation
 - Add actual installed beta.3 screenshots throughout README, with capture provenance and test-state captions.
 - Add a documentation reading map, user guide, implementation walkthrough, contributor workflow, and contribution guide.

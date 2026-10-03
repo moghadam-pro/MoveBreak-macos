@@ -63,3 +63,8 @@ Beta.3/build 4 passed the complete Xcode 16.4 tag CI, including the new packaged
 ## Stage 10 — Public documentation and open-source foundation (2026-10-03)
 
 Captured real beta.3 English/Persian dashboard, exercise library, and settings windows and embedded relevant views between README explanations. Added screenshot provenance with explicit development-state captions. Added a documentation map, user guide, source-level implementation walkthrough, development workflow, and contribution guide. Established AGENTS.md with the owner's mandatory ongoing complete-English-documentation rule. The owner confirmed MIT licensing for the entire current macOS tree with permission from the original rights holder; added LICENSE and updated provenance without rewriting historical tags or upstream licensing. The existing fully bundled beta.3 remains the test deliverable installed on this Mac. Apple credentials/signing/notarization are deferred to a later collaborative stage; Gatekeeper trust is not inferred from packaging.
+
+
+## Stage 11 — GitHub release confirmation (2026-10-04)
+
+Confirmed the existing v0.2.0-beta.3 GitHub prerelease has its uploaded universal DMG and SHA-256 asset. Updated its English release notes with exact artifact verification, current screenshot/documentation links, and MIT/attribution scope. Retained the immutable tag and existing installer bytes; the release remains a beta and does not claim Apple notarization.
