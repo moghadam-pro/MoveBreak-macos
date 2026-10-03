@@ -4,6 +4,13 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 
 ## [Unreleased]
 
+### Documentation and open-source project foundation
+- Add actual installed beta.3 screenshots throughout README, with capture provenance and test-state captions.
+- Add a documentation reading map, user guide, implementation walkthrough, contributor workflow, and contribution guide.
+- Record the owner's permanent requirement for complete English documentation with every change in AGENTS.md.
+- License the complete current macOS project under MIT after the owner confirmed original rights-holder permission for inherited artwork, content, and design assets.
+- Keep the existing standalone beta.3 artifact unchanged; defer authenticated Apple distribution signing to a later owner-assisted stage.
+
 ## [0.2.0-beta.3] - 2026-10-03
 
 ### Fixed

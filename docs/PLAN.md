@@ -58,3 +58,8 @@ After the user unlocked the Mac, installed the exact CI-produced beta.2 artifact
 ## Stage 9 — Final published beta verification (2026-10-03)
 
 Beta.3/build 4 passed the complete Xcode 16.4 tag CI, including the new packaged-app startup smoke test, and published the universal DMG/checksum. Downloaded the exact release image, verified SHA-256 and its embedded app signature, installed it in Applications, and confirmed successful startup, resource loading, Persian RTL, the release version, notification delivery, and login-item registration/removal. Restored launch at login to Off. Updated README, changelog, and the testing record with this final evidence. Developer ID/notarization and the documented environment-dependent platform checks remain outstanding; no trusted distribution claim is made.
+
+
+## Stage 10 — Public documentation and open-source foundation (2026-10-03)
+
+Captured real beta.3 English/Persian dashboard, exercise library, and settings windows and embedded relevant views between README explanations. Added screenshot provenance with explicit development-state captions. Added a documentation map, user guide, source-level implementation walkthrough, development workflow, and contribution guide. Established AGENTS.md with the owner's mandatory ongoing complete-English-documentation rule. The owner confirmed MIT licensing for the entire current macOS tree with permission from the original rights holder; added LICENSE and updated provenance without rewriting historical tags or upstream licensing. The existing fully bundled beta.3 remains the test deliverable installed on this Mac. Apple credentials/signing/notarization are deferred to a later collaborative stage; Gatekeeper trust is not inferred from packaging.

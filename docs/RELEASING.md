@@ -28,7 +28,7 @@ Set `MOVEBREAK_SIGNING_IDENTITY` to the certificate identity and `MOVEBREAK_NOTA
 
 Only successful authenticated execution confirms signing/notarization. Currently there are no valid signing identities or configured MoveBreak notary credentials on the development Mac. Ad-hoc signing cannot substitute for them. See SECURITY-STATUS.md and Apple's official documentation.
 
-Before a stable release, validate exact downloaded artifacts on a clean Mac, macOS 14, and Intel, plus notification, login, accessibility, and sleep/lock checks. App Store distribution/sandboxing is a separate later task. Confirm original material licensing before choosing a new public license.
+Before a stable release, validate exact downloaded artifacts on a clean Mac, macOS 14, and Intel, plus notification, login, accessibility, and sleep/lock checks. App Store distribution/sandboxing is a separate later task. For the next newly packaged release, include LICENSE and THIRD_PARTY_NOTICES.md with the application/installer. The existing beta.3 artifact predates this licensing decision and is not silently replaced; its companion license and provenance are available in the current repository. Retain the MIT license and original-material attribution in distributions; permission for the current macOS scope is recorded in THIRD_PARTY_NOTICES.md.
 
 ## Recover the Windows source
 

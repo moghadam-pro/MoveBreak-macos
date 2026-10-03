@@ -1,6 +1,6 @@
 # MoveBreak for macOS
 
-A calm, offline movement and eye-rest reminder for people who spend long hours at a desk. This native SwiftUI adaptation of [MoveBreak by hedieh-hj](https://github.com/hedieh-hj/MoveBreak) preserves the original exercise artwork and product direction.
+Free and open source under the [MIT License](LICENSE). A calm, offline movement and eye-rest reminder for people who spend long hours at a desk. This native SwiftUI adaptation of [MoveBreak by hedieh-hj](https://github.com/hedieh-hj/MoveBreak) preserves the original exercise artwork and product direction.
 
 **Current version:** 0.2.0-beta.3 · **macOS 14+** · **Apple Silicon and Intel universal app**.
 
@@ -12,11 +12,19 @@ The app is completely bundled. Users do not need Terminal, shell scripts, Xcode,
 
 **Beta security status:** the current beta has a local ad-hoc signature and hardened runtime. It is **not Developer ID signed or Apple notarized**. macOS Gatekeeper may block a downloaded copy. A seamless downloaded first launch requires Apple distribution credentials even outside the App Store. The installer does not change security settings. See [Apple's explanation](https://support.apple.com/102445) and the [verified security status](docs/SECURITY-STATUS.md). Developer ID/notarization tooling is prepared for when credentials become available; no notarized release is claimed.
 
+![English dashboard with countdown and illustrated exercise](docs/screenshots/dashboard-en.png)
+
+*Actual beta.3 dashboard. The two-minute interval and completion counts are development test state; the default movement interval is 45 minutes.*
+
 ## Languages and accessibility
 
 Select **English**, **فارسی**, **Español**, **Türkçe**, or **Deutsch** in Settings. Switching takes effect immediately and is saved. The initial language follows the first supported preferred macOS language, falling back to English.
 
 Application controls, statuses, exercise titles/instructions, notifications, outcomes, categories, and wellness guidance are translated. Persian mirrors the dashboard, navigation tabs, forms, cards, history rows, and break actions; numbers and dates use the selected locale. The countdown keeps a consistent time order. macOS permission prompts and OS-generated menus follow the operating system's language.
+
+![Persian dashboard with mirrored navigation and RTL content](docs/screenshots/dashboard-fa.png)
+
+*Persian RTL in the actual installed app.*
 
 ## Features
 
@@ -32,6 +40,10 @@ Application controls, statuses, exercise titles/instructions, notifications, out
 - Optional launch at login with actual macOS registration status and a Login Items link.
 - No account, cloud service, telemetry, or external package dependency.
 
+![Offline exercise library](docs/screenshots/exercises-en.png)
+
+*The bundled library contains 18 illustrated exercises.*
+
 ## Permissions and first use
 
 MoveBreak starts its timer when opened. Closing the main window leaves it running in the menu bar. Pause or restart from Home, or take a break immediately. On a reminder, complete, skip, or snooze it. Countdown deadlines start fresh after reopening; history remains saved.
@@ -41,6 +53,10 @@ Notification permission is optional. In Settings, select **Enable system notific
 Enable **Launch at login** only if desired. macOS may require approval in Login Items. The in-app link opens that page, and the displayed state reflects the system's registration state. Disabling the option unregisters the app.
 
 No Accessibility, Input Monitoring, Screen Recording, Full Disk Access, camera, or microphone permission is needed. Automatic fullscreen detection is outside the current requested scope. Manual presentation deferral remains available.
+
+![Settings with notification and login-item controls](docs/screenshots/settings-en.png)
+
+*Language, work intervals, appearance, and optional macOS integrations. Screenshot feedback comes from development tests.*
 
 ## Local data
 
@@ -77,6 +93,8 @@ VERSION                  Semantic version, including beta identifiers
 BUILD_NUMBER             Monotonic macOS bundle build number
 ```
 
+Start with the [documentation reading map](docs/README.md), [user guide](docs/USER-GUIDE.md), [contribution guide](CONTRIBUTING.md), [development workflow](docs/DEVELOPMENT.md), and [implementation walkthrough](docs/IMPLEMENTATION.md). Documentation updates are mandatory for every change, as recorded in [project rules](AGENTS.md).
+
 Read the [architecture](docs/ARCHITECTURE.md), [localization design](docs/LOCALIZATION.md), [Windows review](docs/WINDOWS-REVIEW.md), [stage log](docs/PLAN.md), [testing record](docs/TESTING.md), [security status](docs/SECURITY-STATUS.md), [release process](docs/RELEASING.md), and [changelog](CHANGELOG.md). The full Windows source remains preserved in [`backup/windows-2026-10-03`](https://github.com/moghadam-pro/MoveBreak-macos/tree/backup/windows-2026-10-03).
 
 ## Verification and remaining checks
@@ -87,6 +105,6 @@ Public Apple signing/notarization remains blocked by missing credentials. Actual
 
 ## Attribution and licensing
 
-Original product design, illustrations, and English/Persian/Spanish exercise descriptions come from MoveBreak by hedieh-hj. See [provenance](THIRD_PARTY_NOTICES.md). No LICENSE file was present at the reviewed source commit; no new license is assigned to original materials.
+Original product design, illustrations, and English/Persian/Spanish exercise descriptions come from MoveBreak by hedieh-hj. See [provenance](THIRD_PARTY_NOTICES.md). The current macOS project, including code, documentation, illustrations, exercise content, and design assets, is distributed under the [MIT License](LICENSE). On 2026-10-03 the project owner confirmed permission from the original rights holder for this scope. The preserved Windows backup reflects its historical licensing state; this repository does not change the upstream project’s license. MIT permits commercial reuse as well as free use; attribution and the license notice must be retained.
 
 MoveBreak provides general wellness guidance, not medical advice. Move gently, stop if a movement causes pain, and seek professional guidance when appropriate.
