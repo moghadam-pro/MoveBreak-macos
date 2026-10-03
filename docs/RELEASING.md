@@ -1,26 +1,35 @@
-# Versioning and releases
+# Versioning, packaging, and releases
 
-Use Semantic Versioning: `MAJOR.MINOR.PATCH`. Before 1.0, minor versions may introduce significant changes; patches fix compatible behavior. Native versions begin at 0.1.0 independently of the Windows version lineage. `VERSION` is the package metadata source for app packaging; update the displayed version and changelog with each release. The current bundle build number is 1; increment `CFBundleVersion` for subsequent distributed builds of a marketing version.
+Versions follow Semantic Versioning. Beta identifiers use `MAJOR.MINOR.PATCH-beta.N`, with matching annotated tags `vMAJOR.MINOR.PATCH-beta.N`. `VERSION` contains the full version; `BUILD_NUMBER` contains the monotonically increasing numeric build number. Packaging strips the prerelease suffix for `CFBundleShortVersionString`, writes the full version to `MBReleaseVersion`, and uses BUILD_NUMBER for `CFBundleVersion`. UI version display reads the bundle metadata.
 
-Use Conventional Commit subjects (`feat:`, `fix:`, `docs:`, `test:`, `build:`) and annotated release tags `vX.Y.Z`. Use `codex/` for work branches. Keep main buildable. Changelog entries follow Keep a Changelog, with Unreleased changes first and dated release sections. Backup tags use `backup/` and are never release tags.
+Use Conventional Commit subjects and keep main buildable. Backup tags use `backup/` and never masquerade as release tags. Keep CHANGELOG entries dated and record each delivery stage in PLAN.md.
 
-## Local development build
+## End-user artifact
 
-Run `swift test`, then `scripts/build-app.sh release`. Open `artifacts/MoveBreak.app`. Output targets the host architecture. The script applies an ad-hoc signature for local development; this is not sufficient for a trusted public download. CI uploads a build artifact and does not automatically publish a GitHub Release.
+The deliverable is `MoveBreak-<version>-macOS.dmg`, containing MoveBreak.app, an Applications shortcut, and Read Me.html. The user opens the DMG, drags the app into Applications, and opens the app. No shell, SDK, Xcode, runtime installation, setup script, or account is part of the user flow.
 
-## Public release gate
+## Maintainer build
 
-1. Complete the manual checks in TESTING.md and test minimum macOS 14 support.
-2. Confirm original artwork/content licensing with the original author.
-3. Choose the permanent bundle identifier and Apple Developer team.
-4. Update VERSION, visible version, build number, and CHANGELOG.
-5. Build and test the intended architectures; an Apple Silicon build does not prove Intel support.
-6. Replace the local ad-hoc signature with a Developer ID Application signature, hardened runtime and appropriate entitlements. Sign nested executable code correctly; do not use deep signing as a production substitute.
-7. Submit the signed archive with `xcrun notarytool`, wait for acceptance, staple with `xcrun stapler`, and validate with `codesign` and `spctl` on a clean machine.
-8. Create the annotated version tag and attach the verified artifact to a GitHub Release, including installation steps, macOS requirement, checksum, and known limitations.
+Run policy/localization tests and catalog validation, then `scripts/build-app.sh release universal` and `scripts/build-dmg.sh`. Universal is the default and contains arm64 and x86_64 slices. `host` can be used for faster local development. The app build includes both SwiftPM resource bundles, generated icon, version metadata, and a hardened-runtime signature. Without MOVEBREAK_SIGNING_IDENTITY it uses local ad-hoc signing. Verify architecture/minimum OS with `lipo` and `vtool`, bundle integrity with `codesign`, and disk image integrity with `hdiutil verify`.
 
-No valid code-signing identity was found during initial setup. Do not claim notarization until Apple accepts the exact distributed build. App Store distribution, sandboxing, updates, and installer packaging are separate future decisions.
+DMG packaging creates a checksum alongside the artifact. macOS CI tests, validates catalogs, and builds the universal app/DMG. Tags containing `-beta.` create a GitHub prerelease with the DMG and checksum. Stable tags do not automatically publish a release because Apple signing prerequisites must first be configured. The beta release notes explicitly disclose the ad-hoc signature and Gatekeeper limitation.
+
+## Developer ID and notarization
+
+Requirements: Apple Developer distribution access, a valid Developer ID Application certificate with its private key installed in the keychain, and authorized notarytool credentials stored in a keychain profile. Do not put private keys, passwords, tokens, or certificate exports in Git.
+
+Set `MOVEBREAK_SIGNING_IDENTITY` to the certificate identity and `MOVEBREAK_NOTARY_PROFILE` to the keychain profile name, then run `scripts/notarize.sh`. These are maintainer tasks; users never run them. The script:
+
+1. Builds a Developer ID signed universal app with hardened runtime and timestamp.
+2. Submits an app archive with notarytool and waits for acceptance.
+3. Staples/validates the app ticket and requires Gatekeeper assessment to pass.
+4. Packages and signs the DMG.
+5. Submits/staples/validates the DMG and regenerates its checksum.
+
+Only successful authenticated execution confirms signing/notarization. Currently there are no valid signing identities or configured MoveBreak notary credentials on the development Mac. Ad-hoc signing cannot substitute for them. See SECURITY-STATUS.md and Apple's official documentation.
+
+Before a stable release, validate exact downloaded artifacts on a clean Mac, macOS 14, and Intel, plus notification, login, accessibility, and sleep/lock checks. App Store distribution/sandboxing is a separate later task. Confirm original material licensing before choosing a new public license.
 
 ## Recover the Windows source
 
-`git switch --detach backup/windows-2026-10-03` checks out the preserved source. Return with `git switch main`. Prefer a separate worktree for comparison. The companion `../MoveBreak-windows-2026-10-03.bundle` contains Git history and refs as a second local recovery artifact.
+Use a separate worktree or detached checkout of `backup/windows-2026-10-03`. The complete-history companion `../MoveBreak-windows-2026-10-03.bundle` is a second local recovery artifact.

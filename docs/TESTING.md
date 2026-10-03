@@ -1,5 +1,51 @@
 # Testing record
 
+## 0.2.0-beta.1 — 2026-10-03
+
+Environment: Apple Silicon Mac, Xcode 27.0 / Swift 6.4. Deployment target is macOS 14. The installed test app is `/Applications/MoveBreak.app`.
+
+### Automated and packaging verification
+
+- All **10 Swift Testing tests** passed: seven timer-policy cases and three localization cases.
+- Catalog validator passed for **82 UI keys**, all five languages, formatting arguments, 18 unique exercise IDs, all localized titles/instructions, and illustration files.
+- Universal release build completed. `lipo` confirmed arm64 and x86_64 slices. `vtool` confirmed minimum macOS **14.0** in both slices.
+- Hardened-runtime ad-hoc app signature passed strict/deep verification; Info.plist passed lint.
+- Both application and core localization resource bundles are packaged and loaded in the installed app.
+- DMG creation and checksum verification completed. Mounted the final image read-only, verified its app signature, Applications symlink, and readable HTML guide, then detached it. SHA-256 verification passed from the artifact directory. No shell/runtime setup is part of installation.
+- Xcode 27 emits an Intel architecture deprecation warning while building; the generated slices still report macOS 14.0 minimum. This is not proof of Intel runtime compatibility.
+
+### Native UI and permission checks
+
+- Installed the app in Applications and launched it successfully with previous saved data.
+- Checked English settings, exercise catalog, and status controls.
+- Switched to Persian and inspected settings, mirrored dashboard, reversed tab ordering, localized countdown/statistics, Persian exercise text, and RTL break-panel actions.
+- Quit/reopened and confirmed the saved Persian language was restored.
+- Exercised a Persian manual break and skip; the panel closed and a different exercise was selected.
+- Switched to Spanish, Turkish, and German and checked translated settings, numeric labels, statuses, and locale changes. Inspected German long-label layout and Turkish exercise instructions.
+- Found delayed external permission refresh and fixed it with app-activation and periodic refresh. Found unmirrored tab order and fixed it with stable explicit selection tags. Found a test-delivery message retaining the previous language and changed it to a lookup key rendered in the current language; rebuilt/reinstalled and confirmed German-to-Persian switching updates the delivered message.
+- Requested notification permission from the installed app. Located the native macOS permission prompt and chose Don't Allow. The app reported Denied, showed a recoverable explanation, and continued working.
+- Used the in-app link to open macOS notification settings; enabled only MoveBreak's notifications and confirmed the app later reported Allowed.
+- Requested a Persian test notification. The app's delivered-notification check confirmed delivery to Notification Center. Visible banner behavior is controlled by macOS and was not used as the sole delivery criterion.
+- Enabled launch at login, confirmed MoveBreak.app appeared under Open at Login in macOS System Settings, then disabled the option and verified the app's registration state returned to Off. The original disabled startup preference was restored.
+- No privileged privacy permission was requested during these checks. Notification permission is enabled on this development Mac after the recovery test.
+
+### Distribution trust checks
+
+- `security find-identity -v -p codesigning`: zero valid identities.
+- `notarytool history --keychain-profile MoveBreak`: no stored profile credentials.
+- `spctl --assess --type execute`: rejected the ad-hoc app, as expected without trusted Apple distribution signing.
+- Developer ID signing and notarization are **blocked**, not passed. Maintainer scripts are prepared but authenticated execution is unverified.
+
+### Environment-dependent checks still required
+
+Actual logout/login startup, all physical lock/unlock/sleep/display-sleep/session-switch transitions, clean-machine downloaded installation, minimum macOS 14 runtime, Intel runtime, multi-monitor/Spaces behavior, and a complete VoiceOver/keyboard matrix remain manual checks. The user's computer was not logged out, restarted, or locked during testing. Notification Focus and screen-sharing suppression are OS policies; global notification/security settings were not weakened.
+
+The existing history contains development smoke-test outcomes. They are not evidence of actual physical exercises. No user data was reset for these tests.
+
+---
+
+## 0.1.0 baseline verification
+
 Date: 2026-10-03. Environment: Apple Silicon Mac, Xcode 27.0 (27A266a), Swift 6.4, current host OS. Deployment target: macOS 14.
 
 ## Verified

@@ -7,12 +7,16 @@
     "titles": {
       "en": "Gentle neck side stretch",
       "fa": "کشش جانبی گردن",
-      "es": "Estiramiento lateral suave del cuello"
+      "es": "Estiramiento lateral suave del cuello",
+      "tr": "Hafif yana boyun esnetme",
+      "de": "Sanfte seitliche Nackendehnung"
     },
     "instructions": {
       "en": "Sit tall. Lower one ear toward the same-side shoulder without lifting the shoulder. Hold each side for 20 seconds.",
       "fa": "صاف بنشینید. بدون بالا آوردن شانه، گوش را به سمت همان شانه ببرید؛ هر سمت را ۲۰ ثانیه نگه دارید.",
-      "es": "Siéntate con la espalda recta. Acerca una oreja al hombro del mismo lado sin levantarlo. Mantén cada lado durante 20 segundos."
+      "es": "Siéntate con la espalda recta. Acerca una oreja al hombro del mismo lado sin levantarlo. Mantén cada lado durante 20 segundos.",
+      "tr": "Dik otur. Omzunu kaldırmadan kulağını aynı taraftaki omzuna yaklaştır. Her tarafı 20 saniye tut.",
+      "de": "Sitze aufrecht. Neige ein Ohr zur Schulter derselben Seite, ohne die Schulter anzuheben. Halte jede Seite 20 Sekunden."
     }
   },
   {
@@ -23,12 +27,16 @@
     "titles": {
       "en": "Shoulder rolls",
       "fa": "چرخش شانه‌ها",
-      "es": "Círculos de hombros"
+      "es": "Círculos de hombros",
+      "tr": "Omuz çevirme",
+      "de": "Schulterkreisen"
     },
     "instructions": {
       "en": "Roll both shoulders slowly backward 10 times, then forward 10 times.",
       "fa": "شانه‌ها را ۱۰ بار آرام به عقب و سپس ۱۰ بار به جلو بچرخانید.",
-      "es": "Gira ambos hombros lentamente 10 veces hacia atrás y después 10 veces hacia delante."
+      "es": "Gira ambos hombros lentamente 10 veces hacia atrás y después 10 veces hacia delante.",
+      "tr": "İki omzunu yavaşça 10 kez geriye, ardından 10 kez öne çevir.",
+      "de": "Kreise beide Schultern langsam 10-mal nach hinten und dann 10-mal nach vorne."
     }
   },
   {
@@ -39,12 +47,16 @@
     "titles": {
       "en": "Seated spinal twist",
       "fa": "چرخش نشسته کمر",
-      "es": "Rotación de columna sentado"
+      "es": "Rotación de columna sentado",
+      "tr": "Oturarak omurga dönüşü",
+      "de": "Wirbelsäulendrehung im Sitzen"
     },
     "instructions": {
       "en": "Sit tall and rotate your torso gently to one side without forcing it. Hold each side for 20 seconds.",
       "fa": "صاف بنشینید و تنه را بدون فشار به یک سمت بچرخانید؛ هر سمت را ۲۰ ثانیه نگه دارید.",
-      "es": "Siéntate con la espalda recta y gira suavemente el torso hacia un lado sin forzar. Mantén cada lado durante 20 segundos."
+      "es": "Siéntate con la espalda recta y gira suavemente el torso hacia un lado sin forzar. Mantén cada lado durante 20 segundos.",
+      "tr": "Dik otur ve gövdeni zorlamadan hafifçe bir yana çevir. Her tarafı 20 saniye tut.",
+      "de": "Sitze aufrecht und drehe deinen Oberkörper sanft zu einer Seite, ohne Kraft auszuüben. Halte jede Seite 20 Sekunden."
     }
   },
   {
@@ -55,12 +67,16 @@
     "titles": {
       "en": "Wrist flexor stretch",
       "fa": "کشش مچ دست",
-      "es": "Estiramiento de flexores de muñeca"
+      "es": "Estiramiento de flexores de muñeca",
+      "tr": "El bileği esnetme",
+      "de": "Dehnung der Handgelenkbeuger"
     },
     "instructions": {
       "en": "Extend one arm and use the other hand to draw the fingers gently back. Repeat on the other side.",
       "fa": "یک دست را بکشید و با دست دیگر انگشت‌ها را آرام به عقب ببرید؛ سپس سمت دیگر را انجام دهید.",
-      "es": "Extiende un brazo y usa la otra mano para llevar suavemente los dedos hacia atrás. Repite con el otro lado."
+      "es": "Extiende un brazo y usa la otra mano para llevar suavemente los dedos hacia atrás. Repite con el otro lado.",
+      "tr": "Bir kolunu uzat ve diğer elinle parmaklarını hafifçe geriye çek. Diğer tarafta tekrarla.",
+      "de": "Strecke einen Arm aus und ziehe die Finger mit der anderen Hand sanft nach hinten. Wiederhole dies auf der anderen Seite."
     }
   },
   {
@@ -71,12 +87,16 @@
     "titles": {
       "en": "Calf raises",
       "fa": "بالا بردن پاشنه",
-      "es": "Elevaciones de talones"
+      "es": "Elevaciones de talones",
+      "tr": "Topuk kaldırma",
+      "de": "Fersenheben"
     },
     "instructions": {
       "en": "Stand beside your desk. Rise onto your toes 12 times and lower slowly, using the desk only for balance.",
       "fa": "کنار میز بایستید، ۱۲ بار روی پنجه بالا بروید و آرام پایین بیایید؛ از میز فقط برای حفظ تعادل کمک بگیرید.",
-      "es": "Ponte de pie junto al escritorio. Sube sobre las puntas 12 veces y baja lentamente, usando el escritorio solo para mantener el equilibrio."
+      "es": "Ponte de pie junto al escritorio. Sube sobre las puntas 12 veces y baja lentamente, usando el escritorio solo para mantener el equilibrio.",
+      "tr": "Masanın yanında ayakta dur. Parmak uçlarına 12 kez yüksel ve yavaşça in. Masayı yalnızca denge için kullan.",
+      "de": "Stehe neben deinem Schreibtisch. Hebe dich 12-mal auf die Zehenspitzen und senke dich langsam ab. Nutze den Tisch nur für das Gleichgewicht."
     }
   },
   {
@@ -87,12 +107,16 @@
     "titles": {
       "en": "20-20-20 eye break",
       "fa": "قانون ۲۰-۲۰-۲۰",
-      "es": "Descanso visual 20-20-20"
+      "es": "Descanso visual 20-20-20",
+      "tr": "20-20-20 göz molası",
+      "de": "20-20-20-Augenpause"
     },
     "instructions": {
       "en": "Look at something at least 6 metres (20 feet) away for 20 seconds and blink naturally.",
       "fa": "۲۰ ثانیه به جسمی در فاصله دست‌کم ۶ متر نگاه کنید و چند بار به‌آرامی پلک بزنید.",
-      "es": "Mira durante 20 segundos un objeto situado al menos a 6 metros y parpadea con naturalidad."
+      "es": "Mira durante 20 segundos un objeto situado al menos a 6 metros y parpadea con naturalidad.",
+      "tr": "20 saniye boyunca en az 6 metre uzaktaki bir nesneye bak ve doğal biçimde göz kırp.",
+      "de": "Blicke 20 Sekunden auf einen Gegenstand in mindestens 6 Metern Entfernung und blinzle natürlich."
     }
   },
   {
@@ -103,12 +127,16 @@
     "titles": {
       "en": "Chin tuck",
       "fa": "جمع‌کردن چانه",
-      "es": "Retracción de la barbilla"
+      "es": "Retracción de la barbilla",
+      "tr": "Çeneyi geriye çekme",
+      "de": "Kinn zurückziehen"
     },
     "instructions": {
       "en": "Keep your eyes level and glide your head straight back, making a gentle double chin. Hold 5 seconds and repeat 6 times.",
       "fa": "نگاه را افقی نگه دارید و سر را مستقیم به عقب ببرید تا چانه کمی جمع شود؛ ۵ ثانیه نگه دارید و ۶ بار تکرار کنید.",
-      "es": "Mantén la mirada al frente y desplaza la cabeza recta hacia atrás, formando suavemente una papada. Mantén 5 segundos y repite 6 veces."
+      "es": "Mantén la mirada al frente y desplaza la cabeza recta hacia atrás, formando suavemente una papada. Mantén 5 segundos y repite 6 veces.",
+      "tr": "Bakışını yatay tut ve başını düz geriye kaydırarak çeneni hafifçe içeri çek. 5 saniye tut ve 6 kez tekrarla.",
+      "de": "Halte deinen Blick waagerecht und schiebe den Kopf gerade nach hinten, sodass ein leichtes Doppelkinn entsteht. Halte 5 Sekunden und wiederhole dies 6-mal."
     }
   },
   {
@@ -119,12 +147,16 @@
     "titles": {
       "en": "Gentle neck rotation",
       "fa": "چرخش آرام گردن",
-      "es": "Rotación suave del cuello"
+      "es": "Rotación suave del cuello",
+      "tr": "Hafif boyun dönüşü",
+      "de": "Sanfte Nackendrehung"
     },
     "instructions": {
       "en": "Turn your head slowly to look over one shoulder. Keep the chin level and hold each side for 15–20 seconds.",
       "fa": "سر را آرام بچرخانید و از روی یک شانه نگاه کنید؛ چانه را هم‌سطح نگه دارید و هر سمت را ۱۵ تا ۲۰ ثانیه حفظ کنید.",
-      "es": "Gira lentamente la cabeza para mirar por encima de un hombro. Mantén la barbilla nivelada y cada lado durante 15–20 segundos."
+      "es": "Gira lentamente la cabeza para mirar por encima de un hombro. Mantén la barbilla nivelada y cada lado durante 15–20 segundos.",
+      "tr": "Başını yavaşça çevirerek bir omzunun üzerinden bak. Çeneni yatay tut ve her tarafı 15–20 saniye koru.",
+      "de": "Drehe den Kopf langsam, um über eine Schulter zu schauen. Halte das Kinn waagerecht und jede Seite 15–20 Sekunden."
     }
   },
   {
@@ -135,12 +167,16 @@
     "titles": {
       "en": "Standing chest opener",
       "fa": "بازکردن قفسه سینه",
-      "es": "Apertura de pecho de pie"
+      "es": "Apertura de pecho de pie",
+      "tr": "Ayakta göğüs açma",
+      "de": "Brustöffnung im Stehen"
     },
     "instructions": {
       "en": "Stand tall, clasp your hands behind you and gently draw the shoulders back. Keep the ribs relaxed and hold for 20 seconds.",
       "fa": "صاف بایستید، دست‌ها را پشت بدن در هم قفل کنید و شانه‌ها را آرام عقب ببرید؛ ۲۰ ثانیه نگه دارید.",
-      "es": "Ponte de pie, entrelaza las manos detrás del cuerpo y lleva suavemente los hombros hacia atrás. Mantén durante 20 segundos."
+      "es": "Ponte de pie, entrelaza las manos detrás del cuerpo y lleva suavemente los hombros hacia atrás. Mantén durante 20 segundos.",
+      "tr": "Dik dur, ellerini arkanda birleştir ve omuzlarını hafifçe geriye çek. Kaburgalarını rahat tut ve 20 saniye bekle.",
+      "de": "Stehe aufrecht, verschränke die Hände hinter dem Rücken und ziehe die Schultern sanft zurück. Halte die Rippen entspannt und bleibe 20 Sekunden so."
     }
   },
   {
@@ -151,12 +187,16 @@
     "titles": {
       "en": "Wall angels",
       "fa": "حرکت فرشته روی دیوار",
-      "es": "Ángeles en la pared"
+      "es": "Ángeles en la pared",
+      "tr": "Duvar meleği",
+      "de": "Wandengel"
     },
     "instructions": {
       "en": "Rest your back against a wall and slide bent arms slowly up and down. Stay comfortable and repeat 8 times.",
       "fa": "پشت خود را به دیوار تکیه دهید و دست‌های خم‌شده را آرام بالا و پایین ببرید؛ در دامنه راحت ۸ بار تکرار کنید.",
-      "es": "Apoya la espalda contra una pared y desliza lentamente los brazos flexionados hacia arriba y abajo. Mantén un rango cómodo y repite 8 veces."
+      "es": "Apoya la espalda contra una pared y desliza lentamente los brazos flexionados hacia arriba y abajo. Mantén un rango cómodo y repite 8 veces.",
+      "tr": "Sırtını duvara yasla ve bükülü kollarını yavaşça yukarı aşağı kaydır. Rahat bir aralıkta 8 kez tekrarla.",
+      "de": "Lehne den Rücken an eine Wand und schiebe die angewinkelten Arme langsam auf und ab. Bleibe in einem angenehmen Bewegungsbereich und wiederhole dies 8-mal."
     }
   },
   {
@@ -167,12 +207,16 @@
     "titles": {
       "en": "Seated forward fold",
       "fa": "خم‌شدن رو به جلو روی صندلی",
-      "es": "Flexión hacia delante sentado"
+      "es": "Flexión hacia delante sentado",
+      "tr": "Oturarak öne eğilme",
+      "de": "Vorbeuge im Sitzen"
     },
     "instructions": {
       "en": "With feet planted, fold forward from the hips and let your arms and head relax. Breathe slowly for 20–30 seconds.",
       "fa": "کف پاها را روی زمین بگذارید، از لگن به جلو خم شوید و دست‌ها و سر را رها کنید؛ ۲۰ تا ۳۰ ثانیه آرام نفس بکشید.",
-      "es": "Apoya los pies en el suelo, inclínate hacia delante desde las caderas y relaja los brazos y la cabeza. Respira despacio durante 20–30 segundos."
+      "es": "Apoya los pies en el suelo, inclínate hacia delante desde las caderas y relaja los brazos y la cabeza. Respira despacio durante 20–30 segundos.",
+      "tr": "Ayaklarını yere bas. Kalçadan öne eğilerek kollarını ve başını gevşet. 20–30 saniye yavaşça nefes al.",
+      "de": "Stelle die Füße auf den Boden, beuge dich aus der Hüfte nach vorne und entspanne Arme und Kopf. Atme 20–30 Sekunden langsam."
     }
   },
   {
@@ -183,12 +227,16 @@
     "titles": {
       "en": "Standing back extension",
       "fa": "بازکردن کمر در حالت ایستاده",
-      "es": "Extensión de espalda de pie"
+      "es": "Extensión de espalda de pie",
+      "tr": "Ayakta sırt esnetme",
+      "de": "Rückenstreckung im Stehen"
     },
     "instructions": {
       "en": "Place your hands on your hips and lean back only slightly while keeping your balance. Return slowly and repeat 5 times.",
       "fa": "دست‌ها را روی لگن بگذارید و با حفظ تعادل کمی به عقب متمایل شوید؛ آرام برگردید و ۵ بار تکرار کنید.",
-      "es": "Coloca las manos en las caderas e inclínate solo un poco hacia atrás manteniendo el equilibrio. Vuelve lentamente y repite 5 veces."
+      "es": "Coloca las manos en las caderas e inclínate solo un poco hacia atrás manteniendo el equilibrio. Vuelve lentamente y repite 5 veces.",
+      "tr": "Ellerini kalçana koy ve dengeni koruyarak yalnızca hafifçe geriye eğil. Yavaşça dön ve 5 kez tekrarla.",
+      "de": "Lege die Hände auf die Hüften und lehne dich nur leicht zurück, während du das Gleichgewicht hältst. Kehre langsam zurück und wiederhole dies 5-mal."
     }
   },
   {
@@ -199,12 +247,16 @@
     "titles": {
       "en": "Wrist circles",
       "fa": "چرخش مچ‌ها",
-      "es": "Círculos de muñeca"
+      "es": "Círculos de muñeca",
+      "tr": "El bileği çevirme",
+      "de": "Handgelenkkreisen"
     },
     "instructions": {
       "en": "Relax your hands and draw 8 slow circles with both wrists in each direction.",
       "fa": "دست‌ها را رها کنید و با هر دو مچ، در هر جهت ۸ دایره آرام رسم کنید.",
-      "es": "Relaja las manos y dibuja 8 círculos lentos con ambas muñecas en cada dirección."
+      "es": "Relaja las manos y dibuja 8 círculos lentos con ambas muñecas en cada dirección.",
+      "tr": "Ellerini gevşet ve iki bileğinle her yönde 8 yavaş daire çiz.",
+      "de": "Entspanne die Hände und zeichne mit beiden Handgelenken 8 langsame Kreise in jede Richtung."
     }
   },
   {
@@ -215,12 +267,16 @@
     "titles": {
       "en": "Prayer wrist stretch",
       "fa": "کشش دعایی مچ",
-      "es": "Estiramiento de muñecas en oración"
+      "es": "Estiramiento de muñecas en oración",
+      "tr": "Avuçlar birleşik bilek esnetme",
+      "de": "Handgelenkdehnung mit gefalteten Händen"
     },
     "instructions": {
       "en": "Press your palms together at chest height and lower the hands slightly until you feel a gentle wrist stretch. Hold 20 seconds.",
       "fa": "کف دست‌ها را جلوی سینه به هم بچسبانید و دست‌ها را کمی پایین ببرید تا کشش ملایمی حس شود؛ ۲۰ ثانیه نگه دارید.",
-      "es": "Junta las palmas a la altura del pecho y baja ligeramente las manos hasta notar un estiramiento suave. Mantén durante 20 segundos."
+      "es": "Junta las palmas a la altura del pecho y baja ligeramente las manos hasta notar un estiramiento suave. Mantén durante 20 segundos.",
+      "tr": "Avuçlarını göğüs hizasında birleştir. Hafif bir bilek esnemesi hissedene kadar ellerini biraz indir ve 20 saniye tut.",
+      "de": "Drücke die Handflächen auf Brusthöhe zusammen und senke die Hände etwas ab, bis du eine sanfte Dehnung spürst. Halte 20 Sekunden."
     }
   },
   {
@@ -231,12 +287,16 @@
     "titles": {
       "en": "Seated knee extension",
       "fa": "بازکردن زانو روی صندلی",
-      "es": "Extensión de rodilla sentado"
+      "es": "Extensión de rodilla sentado",
+      "tr": "Oturarak diz uzatma",
+      "de": "Kniestreckung im Sitzen"
     },
     "instructions": {
       "en": "Sit tall and straighten one knee until the leg is comfortable. Hold 3 seconds, lower, and do 8 repetitions per side.",
       "fa": "صاف بنشینید و یک زانو را تا محدوده راحت باز کنید؛ ۳ ثانیه نگه دارید و برای هر پا ۸ بار تکرار کنید.",
-      "es": "Siéntate con la espalda recta y estira una rodilla hasta una posición cómoda. Mantén 3 segundos, baja y haz 8 repeticiones por lado."
+      "es": "Siéntate con la espalda recta y estira una rodilla hasta una posición cómoda. Mantén 3 segundos, baja y haz 8 repeticiones por lado.",
+      "tr": "Dik otur ve bir dizini rahat bir konuma kadar düzleştir. 3 saniye tut, indir ve her taraf için 8 kez tekrarla.",
+      "de": "Sitze aufrecht und strecke ein Knie bis zu einer angenehmen Position. Halte 3 Sekunden, senke das Bein und wiederhole dies 8-mal pro Seite."
     }
   },
   {
@@ -247,12 +307,16 @@
     "titles": {
       "en": "Standing quadriceps stretch",
       "fa": "کشش جلوی ران",
-      "es": "Estiramiento de cuádriceps de pie"
+      "es": "Estiramiento de cuádriceps de pie",
+      "tr": "Ayakta ön bacak esnetme",
+      "de": "Oberschenkeldehnung im Stehen"
     },
     "instructions": {
       "en": "Hold a stable desk for balance, bring one heel gently toward your seat and hold the ankle. Hold each side for 20 seconds.",
       "fa": "برای تعادل میز ثابت را بگیرید، یک پاشنه را آرام به سمت باسن ببرید و مچ پا را نگه دارید؛ هر سمت ۲۰ ثانیه.",
-      "es": "Sujeta un escritorio estable para equilibrarte, acerca suavemente un talón al glúteo y toma el tobillo. Mantén cada lado durante 20 segundos."
+      "es": "Sujeta un escritorio estable para equilibrarte, acerca suavemente un talón al glúteo y toma el tobillo. Mantén cada lado durante 20 segundos.",
+      "tr": "Denge için sağlam bir masaya tutun. Bir topuğunu hafifçe kalçana yaklaştır ve ayak bileğini tut. Her tarafı 20 saniye koru.",
+      "de": "Halte dich für das Gleichgewicht an einem stabilen Tisch fest. Führe eine Ferse sanft zum Gesäß und halte das Fußgelenk. Halte jede Seite 20 Sekunden."
     }
   },
   {
@@ -263,12 +327,16 @@
     "titles": {
       "en": "Eye palming",
       "fa": "استراحت چشم با کف دست",
-      "es": "Descanso ocular con las palmas"
+      "es": "Descanso ocular con las palmas",
+      "tr": "Avuçlarla göz dinlendirme",
+      "de": "Augenruhe mit den Handflächen"
     },
     "instructions": {
       "en": "Warm your palms, close your eyes and cup your hands over them without pressure. Breathe slowly for 30 seconds.",
       "fa": "کف دست‌ها را گرم کنید، چشم‌ها را ببندید و بدون فشار دست‌ها را روی آن‌ها گود کنید؛ ۳۰ ثانیه آرام نفس بکشید.",
-      "es": "Calienta las palmas, cierra los ojos y coloca las manos ahuecadas sobre ellos sin presionar. Respira lentamente durante 30 segundos."
+      "es": "Calienta las palmas, cierra los ojos y coloca las manos ahuecadas sobre ellos sin presionar. Respira lentamente durante 30 segundos.",
+      "tr": "Avuçlarını ısıtmak için birbirine sürt. Gözlerini kapat ve avuçlarını gözlere bastırmadan hafifçe üzerlerine yerleştir. 30 saniye yavaşça nefes al.",
+      "de": "Reibe die Hände, um sie zu wärmen. Schließe die Augen und lege die Handflächen locker darüber, ohne auf die Augen zu drücken. Atme 30 Sekunden langsam."
     }
   },
   {
@@ -279,12 +347,16 @@
     "titles": {
       "en": "Near–far focus shift",
       "fa": "تغییر تمرکز نزدیک و دور",
-      "es": "Cambio de enfoque cerca-lejos"
+      "es": "Cambio de enfoque cerca-lejos",
+      "tr": "Yakın ve uzağa odaklanma",
+      "de": "Fokuswechsel"
     },
     "instructions": {
       "en": "Focus on a finger at arm’s length for 5 seconds, then a distant object for 5 seconds. Repeat 4 times without straining.",
       "fa": "۵ ثانیه به انگشتی در فاصله یک دست و سپس ۵ ثانیه به جسمی دور نگاه کنید؛ بدون فشار ۴ بار تکرار کنید.",
-      "es": "Enfoca un dedo a la distancia del brazo durante 5 segundos y después un objeto lejano durante 5 segundos. Repite 4 veces sin forzar la vista."
+      "es": "Enfoca un dedo a la distancia del brazo durante 5 segundos y después un objeto lejano durante 5 segundos. Repite 4 veces sin forzar la vista.",
+      "tr": "Yakındaki bir nesneye 5 saniye, ardından uzaktaki bir nesneye 5 saniye bak. Gözlerini zorlamadan 4 kez tekrarla.",
+      "de": "Blicke 5 Sekunden auf einen nahen Gegenstand und dann 5 Sekunden auf einen entfernten. Wiederhole dies 4-mal, ohne die Augen anzustrengen."
     }
   }
 ]

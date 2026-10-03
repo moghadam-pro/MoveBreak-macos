@@ -2,67 +2,91 @@
 
 A calm, offline movement and eye-rest reminder for people who spend long hours at a desk. This native SwiftUI adaptation of [MoveBreak by hedieh-hj](https://github.com/hedieh-hj/MoveBreak) preserves the original exercise artwork and product direction.
 
-**Status:** 0.1.0 native development baseline. Requires **macOS 14 or later**. The interface is English. The full Windows source is preserved in [`backup/windows-2026-10-03`](https://github.com/moghadam-pro/MoveBreak-macos/tree/backup/windows-2026-10-03).
+**Current version:** 0.2.0-beta.1 · **macOS 14+** · **Apple Silicon and Intel universal app**.
+
+## Download and install
+
+Download the DMG from [GitHub Releases](https://github.com/moghadam-pro/MoveBreak-macos/releases). Open the disk image, drag **MoveBreak.app** onto **Applications**, then double-click MoveBreak in Applications. Eject the disk image after copying.
+
+The app is completely bundled. Users do not need Terminal, shell scripts, Xcode, Swift, .NET, a setup command, a runtime download, or an account. An Applications shortcut and readable installation guide are included in the disk image. A SHA-256 checksum accompanies each installer.
+
+**Beta security status:** the current beta has a local ad-hoc signature and hardened runtime. It is **not Developer ID signed or Apple notarized**. macOS Gatekeeper may block a downloaded copy. A seamless downloaded first launch requires Apple distribution credentials even outside the App Store. The installer does not change security settings. See [Apple's explanation](https://support.apple.com/102445) and the [verified security status](docs/SECURITY-STATUS.md). Developer ID/notarization tooling is prepared for when credentials become available; no notarized release is claimed.
+
+## Languages and accessibility
+
+Select **English**, **فارسی**, **Español**, **Türkçe**, or **Deutsch** in Settings. Switching takes effect immediately and is saved. The initial language follows the first supported preferred macOS language, falling back to English.
+
+Application controls, statuses, exercise titles/instructions, notifications, outcomes, categories, and wellness guidance are translated. Persian mirrors the dashboard, navigation tabs, forms, cards, history rows, and break actions; numbers and dates use the selected locale. The countdown keeps a consistent time order. macOS permission prompts and OS-generated menus follow the operating system's language.
 
 ## Features
 
-- Menu bar countdown with pause/resume, open, presentation mode, and quit.
+- Menu bar countdown with pause/resume, open, manual presentation deferral, and quit.
 - Configurable movement reminders, defaulting to 45 active minutes.
 - Independent eye-rest reminders every 20 active minutes.
 - Automatic pause for idle time, sleep/display sleep, and inactive sessions.
-- Illustrated break prompt with completed, skipped, and five-minute snooze actions.
+- Illustrated break prompt with completed, skipped, and five-active-minute snooze actions.
 - 18 offline exercises for neck, shoulders, back, wrists, legs, and eyes.
-- Local break history, seven-day completion chart, and estimated active-work totals.
-- System, light, and dark appearance; optional system notifications and launch at login.
+- Local history, seven-day completion chart, and estimated active-work totals.
+- System, light, and dark appearance.
+- Optional system notifications with permission status, recovery link, and test notification.
+- Optional launch at login with actual macOS registration status and a Login Items link.
 - No account, cloud service, telemetry, or external package dependency.
 
-## Build and run
+## Permissions and first use
 
-Install Xcode with its command-line tools selected. The package requires Swift 6.0+; initial development was verified with Xcode 27.0 / Swift 6.4 on Apple Silicon.
+MoveBreak starts its timer when opened. Closing the main window leaves it running in the menu bar. Pause or restart from Home, or take a break immediately. On a reminder, complete, skip, or snooze it. Countdown deadlines start fresh after reopening; history remains saved.
+
+Notification permission is optional. In Settings, select **Enable system notifications**, then respond to the macOS prompt. If denied, the app still displays its own break panel. Use **Open notification settings** to change the permission and **Send test notification** to check delivery. macOS Focus, display sharing, and notification preferences control whether a banner is shown. The app refreshes permission status when activated and periodically while running.
+
+Enable **Launch at login** only if desired. macOS may require approval in Login Items. The in-app link opens that page, and the displayed state reflects the system's registration state. Disabling the option unregisters the app.
+
+No Accessibility, Input Monitoring, Screen Recording, Full Disk Access, camera, or microphone permission is needed. Automatic fullscreen detection is outside the current requested scope. Manual presentation deferral remains available.
+
+## Local data
+
+Preferences, break outcomes, and estimated daily active-work totals stay in `~/Library/Application Support/MoveBreak/state.json`. Writes are atomic and checkpointed every 15 timer ticks; forced termination can lose work since the last checkpoint. Existing 0.1.0 data remains readable, including when no language field is present. Unsupported or unreadable data is preserved rather than overwritten. See [privacy and backup instructions](docs/PRIVACY.md).
+
+## Development
+
+These commands are for contributors. End users install the DMG and run the app directly.
+
+Requirements: Xcode with selected command-line tools, Swift 6.0+, and macOS 14+. Development was verified with Xcode 27.0 / Swift 6.4 on Apple Silicon.
 
 ```sh
 git clone https://github.com/moghadam-pro/MoveBreak-macos.git
 cd MoveBreak-macos
 swift test
-scripts/build-app.sh debug
-open artifacts/MoveBreak.app
+python3 scripts/validate-localization.py
+scripts/build-app.sh release universal
+scripts/build-dmg.sh
 ```
 
-Open `Package.swift` in Xcode to edit and debug the package. Use the packaged `.app` for notification and login-item integration checks; launching the raw SwiftPM executable is not the supported integration path. Run `scripts/build-app.sh release` for an optimized local app. The generated bundle has a local ad-hoc signature and is not a notarized public release.
+Open `Package.swift` in Xcode to edit/debug. The packaging script generates an app icon, version metadata, both resource bundles, a universal executable, and an ad-hoc hardened-runtime signature. Use the installed app for notification/login tests. [Release maintainers](docs/RELEASING.md) can opt into Developer ID signing and notarization without changing the source.
 
-## Using MoveBreak
-
-The timer starts when the app opens and counts estimated active work. Closing the main window leaves it running in the menu bar. Pause or restart from Home, or take a break immediately. When a reminder appears, complete, skip, or snooze it. Skipping chooses a different next exercise.
-
-In Settings, choose the reminder interval, idle threshold, eye rule, sound, appearance, and optional launch at login, then save settings. Use **Enable system notifications** to request macOS notification permission. The illustrated panel works without that permission. macOS may require approval in System Settings for launch at login.
-
-Enable **Defer reminders (presentation mode)** before presentations or focused work. Automatic fullscreen/meeting detection is not included. Eye reminders are independent of movement reminders; simultaneous deadlines are handled as a movement break. Snooze is five active minutes. History persists, but countdown deadlines start fresh after reopening.
-
-## Local data
-
-Data is stored at `~/Library/Application Support/MoveBreak/state.json`. Active-work totals are estimates, not posture or sitting measurements. Writes are atomic and checkpointed every 15 timer ticks; forced termination can lose work since the last checkpoint. Unsupported or unreadable data is preserved rather than overwritten. See [privacy and backup instructions](docs/PRIVACY.md).
-
-## Source layout
+## Source layout and documentation
 
 ```text
 Sources/
-  MoveBreakCore/       Pure reminder policy and records
-  MoveBreak/           Native application, views, and platform adapters
-    Resources/        Exercise catalog and illustrations
-Tests/
-  MoveBreakCoreTests/  Deterministic policy tests
-scripts/              App bundle packaging
-docs/                 Architecture, review, stages, testing, privacy, releases
+  MoveBreakCore/          Pure reminder policy, records, localization catalogs
+  MoveBreak/              Native app, views, macOS integrations
+    Resources/           Exercise catalog and illustrations
+Tests/MoveBreakCoreTests/ Timer and localization tests
+scripts/                 Build, DMG, validation, notarization tasks for maintainers
+docs/                    Architecture, stages, tests, privacy, releases, security
+VERSION                  Semantic version, including beta identifiers
+BUILD_NUMBER             Monotonic macOS bundle build number
 ```
 
-Read the [architecture](docs/ARCHITECTURE.md), [Windows review](docs/WINDOWS-REVIEW.md), [stage log and roadmap](docs/PLAN.md), [testing record](docs/TESTING.md), [release/versioning process](docs/RELEASING.md), and [changelog](CHANGELOG.md). Build CI tests the policy and packages a macOS artifact; it does not publish a signed release.
+Read the [architecture](docs/ARCHITECTURE.md), [localization design](docs/LOCALIZATION.md), [Windows review](docs/WINDOWS-REVIEW.md), [stage log](docs/PLAN.md), [testing record](docs/TESTING.md), [security status](docs/SECURITY-STATUS.md), [release process](docs/RELEASING.md), and [changelog](CHANGELOG.md). The full Windows source remains preserved in [`backup/windows-2026-10-03`](https://github.com/moghadam-pro/MoveBreak-macos/tree/backup/windows-2026-10-03).
 
-## Known limitations and next work
+## Verification and remaining checks
 
-Manual validation of minimum-OS behavior, lock/unlock, notification permission, login items, accessibility, multiple displays, and Intel support is still required. Dashboard layout, bundled illustrations, manual break completion, history, and settings were inspected in the running native app. Complete interface localization, automatic meeting/fullscreen deferral, large-history retention, saved countdown restoration, and public signing/notarization are future milestones.
+Ten automated tests cover timer policy and localization. All five catalogs and 18 exercise translations are validated. The installed app has been used to inspect Persian RTL and translated interfaces, permission denial/recovery, and login-item registration/removal. See TESTING.md for the exact final-build evidence.
+
+Public Apple signing/notarization remains blocked by missing credentials. Actual logout/login, minimum macOS 14 runtime, Intel runtime, clean-machine download, and all physical lock/sleep scenarios still require their corresponding environments. A universal build proves both slices are present, not that an Intel Mac has been tested. Saved countdown restoration and large-history retention remain future work.
 
 ## Attribution and licensing
 
-Original product design, illustrations, and multilingual exercise descriptions come from MoveBreak by hedieh-hj. See [provenance](THIRD_PARTY_NOTICES.md). The source reviewed did not include a LICENSE file; no new license is assigned to the original materials. Confirm licensing with the original author before public redistribution.
+Original product design, illustrations, and English/Persian/Spanish exercise descriptions come from MoveBreak by hedieh-hj. See [provenance](THIRD_PARTY_NOTICES.md). No LICENSE file was present at the reviewed source commit; no new license is assigned to original materials.
 
 MoveBreak provides general wellness guidance, not medical advice. Move gently, stop if a movement causes pain, and seek professional guidance when appropriate.

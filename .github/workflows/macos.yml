@@ -13,13 +13,35 @@ jobs:
       - uses: actions/checkout@v4
       - name: Select Xcode 16.4
         run: sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
-      - name: Test timer policy
+      - name: Test timer and localization
         run: swift test
-      - name: Build local app
-        run: scripts/build-app.sh release
-      - name: Archive app
-        run: ditto -c -k --sequesterRsrc --keepParent artifacts/MoveBreak.app artifacts/MoveBreak-macOS.zip
+      - name: Validate catalogs
+        run: python3 scripts/validate-localization.py
+      - name: Build universal app and disk image
+        run: |
+          scripts/build-app.sh release universal
+          scripts/build-dmg.sh
       - uses: actions/upload-artifact@v4
         with:
           name: MoveBreak-macOS
-          path: artifacts/MoveBreak-macOS.zip
+          path: |
+            artifacts/*.dmg
+            artifacts/*.dmg.sha256
+  beta-release:
+    if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '-beta.')
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: MoveBreak-macOS
+          path: artifacts
+      - name: Publish beta installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$GITHUB_REF_NAME" = "v$(cat VERSION)"
+          gh release create "$GITHUB_REF_NAME" artifacts/*.dmg artifacts/*.dmg.sha256 --verify-tag --prerelease --title "MoveBreak $(cat VERSION)" --notes-file docs/BETA-RELEASE.md

@@ -12,14 +12,16 @@ struct Exercise: Codable, Identifiable {
     let image: String
     let titles: [String: String]
     let instructions: [String: String]
-    var title: String { titles["en"] ?? "" }
-    var instruction: String { instructions["en"] ?? "" }
+    func title(in language: AppLanguage) -> String { titles[language.rawValue] ?? titles["en"] ?? "" }
+    func instruction(in language: AppLanguage) -> String { instructions[language.rawValue] ?? instructions["en"] ?? "" }
     var illustration: NSImage? {
         Bundle.module.url(forResource: (image as NSString).deletingPathExtension, withExtension: "png")
             .flatMap { NSImage(contentsOf: $0) }
     }
 }
 struct Preferences: Codable {
+    // Optional for backwards-compatible decoding of the 0.1.0 document.
+    var languageCode: String? = nil
     var reminderMinutes = 45
     var idleMinutes = 3
     var sound = true
@@ -40,7 +42,33 @@ struct LocalData: Codable {
     @Published var exercise: Exercise?
     @Published var error: String?
     @Published var inactive = false
-    @Published var loginEnabled = SMAppService.mainApp.status == .enabled
+    @Published var loginStatus = SMAppService.mainApp.status
+    @Published var notificationStatus: UNAuthorizationStatus = .notDetermined
+    @Published var settingsSaved = false
+    @Published var notificationReport: String?
+    var loginEnabled: Bool { loginStatus == .enabled }
+    var language: AppLanguage { AppLanguage(rawValue: data.preferences.languageCode ?? "") ?? AppLanguage.preferred(from: Locale.preferredLanguages) }
+    var localization: Localization { Localization(language: language) }
+    func text(_ key: String, _ args: String...) -> String {
+        let format = Localization.catalogs[language]?[key] ?? key
+        return args.isEmpty ? format : String(format: format, locale: language.locale, arguments: args)
+    }
+    func number(_ value: Int) -> String { localization.number(value) }
+    var version: String { Bundle.main.object(forInfoDictionaryKey: "MBReleaseVersion") as? String ?? "Development" }
+    var notificationStatusText: String {
+        switch notificationStatus {
+        case .notDetermined: text("Not requested")
+        case .denied: text("Denied")
+        default: text("Allowed")
+        }
+    }
+    var loginStatusText: String {
+        switch loginStatus {
+        case .enabled: text("On")
+        case .requiresApproval: text("Requires approval")
+        default: text("Off")
+        }
+    }
     let exercises: [Exercise]
     private var timer: Timer?
     private var previous = ProcessInfo.processInfo.systemUptime
@@ -53,9 +81,9 @@ struct LocalData: Codable {
     private let file: URL
     var countdown: String {
         let seconds = Int(ceil(engine.remaining))
-        return String(format: "%02d:%02d", seconds / 60, seconds % 60)
+        return String(format: "%02d:%02d", locale: language.locale, seconds / 60, seconds % 60)
     }
-    var status: String { engine.pending != nil ? "Time for a break" : engine.paused ? "Paused" : inactive ? "Away from your Mac" : "Working" }
+    var status: String { text(engine.pending != nil ? "Time for a break" : engine.paused ? "Paused" : inactive ? "Away from your Mac" : "Working") }
     var completedToday: Int { data.records.filter { Calendar.current.isDateInToday($0.date) && $0.outcome == .completed }.count }
     var activeMinutes: Int { Int((data.workByDay[dayKey(Date())] ?? 0) / 60) }
     var colorScheme: ColorScheme? { data.preferences.appearance == "dark" ? .dark : data.preferences.appearance == "light" ? .light : nil }
@@ -73,7 +101,7 @@ struct LocalData: Codable {
                 guard data.schemaVersion == 1 else { throw CocoaError(.fileReadCorruptFile) }
             } catch {
                 canSave = false
-                self.error = "Saved data could not be read. The original file is preserved at \(file.path). \(error.localizedDescription)"
+                self.error = text("Saved data could not be read. The original file is preserved at %@. %@", file.path, error.localizedDescription)
             }
         }
         data.preferences.reminderMinutes = min(120, max(1, data.preferences.reminderMinutes))
@@ -81,6 +109,7 @@ struct LocalData: Codable {
         engine = BreakEngine(interval: Double(data.preferences.reminderMinutes * 60))
         engine.eyesEnabled = data.preferences.eyes
         exercise = exercises.first
+        refreshPermissions()
         let center = NSWorkspace.shared.notificationCenter
         for name in [NSWorkspace.willSleepNotification, NSWorkspace.screensDidSleepNotification, NSWorkspace.sessionDidResignActiveNotification] {
             observers.append(center.addObserver(forName: name, object: nil, queue: .main) { [weak self] note in
@@ -124,7 +153,7 @@ struct LocalData: Codable {
             notify()
         }
         saveCounter += 1
-        if saveCounter >= 15 { saveCounter = 0; save() }
+        if saveCounter >= 15 { saveCounter = 0; save(); refreshPermissions() }
     }
     func selectExercise(eyesOnly: Bool = false) {
         let choices = exercises.filter { (!eyesOnly || $0.category == "Eye") && $0.id != exercise?.id }
@@ -135,7 +164,7 @@ struct LocalData: Codable {
     func takeBreak() {
         guard engine.pending == nil else { showBreak(); return }
         engine.requestBreak()
-        selectExercise(); showBreak()
+        selectExercise(); showBreak(); notify()
     }
     func resolve(_ outcome: BreakRecord.Outcome) {
         guard let kind = engine.pending, let exercise else { return }
@@ -151,43 +180,90 @@ struct LocalData: Codable {
         engine.eyesEnabled = data.preferences.eyes
         if engine.pending == nil { engine.restart() }
         save()
+        settingsSaved = true
+    }
+    func setLanguage(_ code: String) {
+        guard AppLanguage(rawValue: code) != nil else { return }
+        data.preferences.languageCode = code
+        panel?.title = "MoveBreak · " + text("Take a moment")
+        save()
     }
     func save() {
         guard canSave else { return }
         do {
             try FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
             try JSONEncoder().encode(data).write(to: file, options: .atomic)
-        } catch { self.error = "Could not save local data: \(error.localizedDescription)" }
+        } catch { self.error = text("Could not save local data: %@", error.localizedDescription) }
+    }
+    func refreshPermissions() {
+        loginStatus = SMAppService.mainApp.status
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            let status = settings.authorizationStatus
+            Task { @MainActor in self.notificationStatus = status }
+        }
     }
     func setLogin(_ enabled: Bool) {
         do {
             if enabled { try SMAppService.mainApp.register() } else { try SMAppService.mainApp.unregister() }
-            loginEnabled = SMAppService.mainApp.status == .enabled
-            if enabled && !loginEnabled { error = "Approve MoveBreak in System Settings > General > Login Items." }
-        } catch { self.error = "Login item could not be changed: \(error.localizedDescription)" }
+            loginStatus = SMAppService.mainApp.status
+            if enabled && loginStatus == .requiresApproval { error = text("Approve MoveBreak in System Settings > General > Login Items.") }
+        } catch { self.error = text("Login item could not be changed: %@", error.localizedDescription) }
+    }
+    func openLoginSettings() { SMAppService.openSystemSettingsLoginItems() }
+    func openNotificationSettings() {
+        if let url = URL(string: "x-apple.systempreferences:com.apple.Notifications-Settings.extension") { NSWorkspace.shared.open(url) }
     }
     func enableNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { _, error in
-            if let error { Task { @MainActor in self.error = error.localizedDescription } }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { allowed, error in
+            let message = error?.localizedDescription
+            Task { @MainActor in
+                self.refreshPermissions()
+                if !allowed { self.error = self.text("Notifications are disabled. Enable them in System Settings.") }
+                else if let message { self.error = self.text("Notification unavailable: %@", message) }
+            }
         }
     }
-    private func notify() {
-        let content = UNMutableNotificationContent()
-        content.title = "Time to move"
-        content.body = exercise?.title ?? "Take a short break."
-        if data.preferences.sound { content.sound = .default }
-        UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "movebreak-reminder", content: content, trigger: nil)) { error in
-            if let error { Task { @MainActor in self.error = "Notification unavailable: \(error.localizedDescription)" } }
+    func sendTestNotification() { notificationReport = nil; notify(test: true) }
+    private func notify(test: Bool = false) {
+        let title = text("Time to move")
+        let body = test ? text("This is a MoveBreak test notification.") : exercise?.title(in: language) ?? text("Take a short break.")
+        let sound = data.preferences.sound
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            let status = settings.authorizationStatus
+            Task { @MainActor in self.notificationStatus = status }
+            let allowed = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
+            guard allowed else {
+                if test { Task { @MainActor in self.error = self.text("Notifications are disabled. Enable them in System Settings.") } }
+                return
+            }
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            if sound { content.sound = .default }
+            let trigger = test ? UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false) : nil
+            UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: test ? "movebreak-test" : "movebreak-reminder", content: content, trigger: trigger)) { error in
+                if let error { Task { @MainActor in self.error = self.text("Notification unavailable: %@", error.localizedDescription) } }
+                else if test {
+                    Task { @MainActor in
+                        self.notificationReport = "Test notification scheduled. macOS controls its display."
+                        try? await Task.sleep(for: .seconds(4))
+                        let notifications = await UNUserNotificationCenter.current().deliveredNotifications()
+                        if notifications.contains(where: { $0.request.identifier == "movebreak-test" }) {
+                            self.notificationReport = "Test notification delivered to Notification Center."
+                        }
+                    }
+                }
+            }
         }
     }
     func showBreak() {
         guard engine.pending != nil else { return }
         if panel == nil {
             let newPanel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: 460, height: 540), styleMask: [.titled], backing: .buffered, defer: false)
-            newPanel.title = "MoveBreak · Take a moment"
+            newPanel.title = "MoveBreak · " + text("Take a moment")
             newPanel.level = .floating
             newPanel.isReleasedWhenClosed = false
-            newPanel.contentView = NSHostingView(rootView: BreakView().environmentObject(self))
+            newPanel.contentView = NSHostingView(rootView: BreakView().environmentObject(self).localized(using: self))
             newPanel.center()
             panel = newPanel
         }

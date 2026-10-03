@@ -4,6 +4,25 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 
 ## [Unreleased]
 
+## [0.2.0-beta.1] - 2026-10-03
+
+### Stage 5 — Multilingual installable beta
+- Added complete application-owned UI and exercise translations for English, Persian, Spanish, Turkish, and German.
+- Added Persian RTL across dashboard, navigation, forms, history, exercise cards, and break actions, with localized numbers/dates.
+- Added immediate persisted language selection and compatibility with previous saved preferences.
+- Added universal Apple Silicon/Intel app packaging, a drag-to-Applications DMG, installation guide, and SHA-256 checksum.
+- Added hardened-runtime local signing and optional maintainer-only Developer ID/notarization workflow.
+- Added actual permission status, system settings recovery links, test notifications, and foreground notification presentation.
+- Tested notification denial/recovery and login-item registration/removal in the installed app.
+- Corrected permission refresh, Persian navigation order, and test-delivery message localization found during native UI checks.
+- Added localization policy tests, complete catalog/exercise validation, and beta artifact publishing CI.
+- Updated README, release instructions, localization documentation, stage log, and explicit signing/notarization status.
+
+### Distribution status
+- Apple signing/notarization cannot complete without Developer ID and notarization credentials, which are absent.
+- Gatekeeper rejects the ad-hoc build; seamless first launch of downloaded copies is not guaranteed.
+- Automatic fullscreen detection is outside the current scope. OS-version, Intel runtime, and physical login/lock/sleep verification remain documented manual checks.
+
 ## [0.1.0] - 2026-10-03
 
 ### Stage 1 — Preservation and review

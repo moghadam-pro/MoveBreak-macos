@@ -2,13 +2,13 @@
 
 ## Scope
 
-MoveBreak 0.1.0 is an offline macOS 14+ desktop application with an English interface. It reuses all 18 illustrations and exercise descriptions from the Windows source. Persian and Spanish exercise text is preserved in the resource catalog for future interface localization. No Windows runtime, web view, third-party package, cloud account, or server is required.
+MoveBreak 0.2.0-beta.1 is an offline macOS 14+ desktop application with English, Persian (RTL), Spanish, Turkish, and German interfaces. It reuses all 18 illustrations and exercise descriptions from the Windows source. Exercise content is localized in all five supported languages. No Windows runtime, web view, third-party package, cloud account, or server is required.
 
 ## Layers
 
 | Location | Responsibility | Dependencies |
 | --- | --- | --- |
-| `Sources/MoveBreakCore` | Deterministic timer state and break records | Foundation |
+| `Sources/MoveBreakCore` | Deterministic timer state, records, locale selection, and bundled UI catalogs | Foundation |
 | `Sources/MoveBreak/AppModel.swift` | Observable application state, orchestration, local storage, platform services | Core, AppKit, CoreGraphics, UserNotifications, ServiceManagement |
 | `Sources/MoveBreak/Views.swift` | Dashboard, exercise library, history, preferences, break prompt | SwiftUI, Charts |
 | `Sources/MoveBreak/MoveBreakApp.swift` | Window lifecycle, menu bar, app scenes | SwiftUI, AppKit |
@@ -32,20 +32,24 @@ Presentation mode keeps reminders pending at zero until manual deferral is disab
 - CoreGraphics reads aggregate idle duration. No input content, event tap, or keystrokes are recorded.
 - NSWorkspace sleep, display-sleep, wake, and active-session notifications protect work accounting. Lock/unlock behavior still needs manual verification on the deployment OS.
 - UserNotifications authorization is requested only through the explicit settings button. The local panel works independently of notification permission. System Focus rules may suppress system notifications.
-- `SMAppService.mainApp` manages launch at login and reports registration errors. Registration and system approval require manual testing in an installed app.
+- `SMAppService.mainApp` manages launch at login and reports registration errors. Registration, unregistration, and system listing have been tested in the installed app; actual next-login startup remains a manual test.
 
 ## Persistence
 
 `~/Library/Application Support/MoveBreak/state.json` contains schema version 1, preferences, outcome records, and daily active-work totals. JSON is suitable for this initial small local dataset and avoids adding an ORM or SQLite dependency. Writes are atomic, occur every 15 timer ticks, on outcomes/settings changes, and on normal termination. A forced termination can lose up to the checkpoint interval of work time. Restarting the app starts a new timer interval; deadlines are not restored across launches.
 
-Unreadable or unsupported data is preserved and further writes are disabled for that launch; the UI reports the path and error. Future schema upgrades must add an explicit migration before increasing `schemaVersion`. History is currently unbounded in storage and limited to 100 recent rows in the UI. Large-history performance and retention are future work. Windows database migration is out of scope.
+Unreadable or unsupported data is preserved and further writes are disabled for that launch; the UI reports the path and error. The optional languageCode field maintains compatibility with 0.1.0 documents. Future schema upgrades must add an explicit migration before increasing `schemaVersion`. History is currently unbounded in storage and limited to 100 recent rows in the UI. Large-history performance and retention are future work. Windows database migration is out of scope.
 
 ## Build and distribution
 
-Swift Package Manager is the checked-in build system; open `Package.swift` directly in Xcode. The packaging script assembles the executable, SwiftPM resource bundle, generated app icon, and Info.plist into an app with a local ad-hoc signature. It is a local development artifact, not a Developer ID signed or notarized public release. See `RELEASING.md`.
+Swift Package Manager is the checked-in build system; open `Package.swift` directly in Xcode. The packaging script assembles the executable, SwiftPM resource bundle, generated app icon, and Info.plist into an app with a local ad-hoc signature. The default universal app contains arm64 and x86_64 slices and is packaged in a drag-to-Applications DMG. It is ad-hoc signed with hardened runtime; Developer ID signing/notarization awaits Apple credentials. See `RELEASING.md`.
 
 ## Platform references
 
 - [Apple: SMAppService main app login item](https://developer.apple.com/documentation/servicemanagement/smappservice/mainapp)
 - [Apple: login-item registration](https://developer.apple.com/documentation/servicemanagement/smappservice/register%28%29)
 - [Apple: CGEventSource aggregate event timing](https://developer.apple.com/documentation/coregraphics/cgeventsource)
+
+## Localization and permission feedback
+
+See LOCALIZATION.md for immediate locale selection, Persian RTL, catalog parity, and storage compatibility. Permission status refreshes on activation and every 15 timer ticks. Denied notifications do not block the local reminder panel. A user-triggered test notification checks actual authorization and reports scheduling/delivery where observable. The app uses a notification delegate to permit foreground presentation.

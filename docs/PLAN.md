@@ -28,6 +28,16 @@ Outcome: first native development baseline 0.1.0. Public signing/notarization is
 
 1. Verify native UX and permissions on macOS 14 and the current OS, including lock/unlock, Focus, login, multiple displays, and accessibility.
 2. Extract persistence/platform adapters as needed; add storage migrations and fault-injection tests before changing the schema.
-3. Add full interface localization and RTL layout; retain original exercise translations.
-4. Assess automatic fullscreen/meeting deferral with minimal permissions and explicit user controls.
+3. Have native speakers review the five-language interface and exercise translations.
+4. Keep automatic fullscreen detection outside the current scope; improve platform reliability using the documented test matrix.
 5. Confirm asset license, configure Developer ID signing and notarization, validate Intel/universal packaging, and prepare a distributable release.
+
+## Stage 5 — Installable multilingual beta (2026-10-03)
+
+Implemented five-language UI and all 18 exercise translations, Persian RTL including mirrored navigation, localized numbers/dates, immediate language selection, and backwards-compatible language persistence. Added catalog/formatting tests and a resource validator. Upgraded to 0.2.0-beta.1 with independent numeric bundle build metadata.
+
+Built a universal standalone app and a drag-to-Applications DMG, installation guide, checksum, and beta artifact publishing workflow. Added optional Developer ID signing and authenticated notarization automation for maintainers. No user shell or setup runtime is required.
+
+Installed the beta in Applications and exercised notification prompt denial/recovery, status controls, and login-item registration/unregistration through macOS UI. Found and corrected delayed notification-status refresh, Persian tab order, and test-message localization during the checks. Confirmed a Persian test notification reached Notification Center. Final-build evidence is recorded in TESTING.md.
+
+Distribution trust remains externally blocked: the keychain has zero valid code-signing identities and no MoveBreak notary profile. Gatekeeper rejects the ad-hoc app. No notarization success or frictionless downloaded launch is claimed. Physical logout/login, lock/sleep matrix, minimum-OS runtime, and Intel runtime are outstanding environment-dependent checks. Automatic fullscreen detection is outside the current requested scope. The project owner plans to obtain stable/App Store security prerequisites later.
