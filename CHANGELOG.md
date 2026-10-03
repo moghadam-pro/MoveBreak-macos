@@ -4,6 +4,14 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 
 ## [Unreleased]
 
+## [0.2.0-beta.3] - 2026-10-03
+
+### Fixed
+- Explicitly mark UserNotifications callbacks Sendable so older SDKs do not inherit main-actor isolation for callbacks executed on background queues.
+- Fix the packaged beta.2 startup crash found by installing the exact published CI artifact.
+- Add an actual packaged-app startup smoke test to CI, in addition to compilation and policy tests.
+- Mark the beta.2 release as superseded with a startup-crash notice; retain immutable Git history.
+
 ## [0.2.0-beta.2] - 2026-10-03
 
 ### Fixed

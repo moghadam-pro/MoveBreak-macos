@@ -2,11 +2,11 @@
 
 A calm, offline movement and eye-rest reminder for people who spend long hours at a desk. This native SwiftUI adaptation of [MoveBreak by hedieh-hj](https://github.com/hedieh-hj/MoveBreak) preserves the original exercise artwork and product direction.
 
-**Current version:** 0.2.0-beta.2 · **macOS 14+** · **Apple Silicon and Intel universal app**.
+**Current version:** 0.2.0-beta.3 · **macOS 14+** · **Apple Silicon and Intel universal app**.
 
 ## Download and install
 
-Download the [0.2.0-beta.2 DMG](https://github.com/moghadam-pro/MoveBreak-macos/releases/download/v0.2.0-beta.2/MoveBreak-0.2.0-beta.2-macOS.dmg) from [GitHub Releases](https://github.com/moghadam-pro/MoveBreak-macos/releases/tag/v0.2.0-beta.2). Open the disk image, drag **MoveBreak.app** onto **Applications**, then double-click MoveBreak in Applications. Eject the disk image after copying.
+Download the [0.2.0-beta.3 DMG](https://github.com/moghadam-pro/MoveBreak-macos/releases/download/v0.2.0-beta.3/MoveBreak-0.2.0-beta.3-macOS.dmg) from [GitHub Releases](https://github.com/moghadam-pro/MoveBreak-macos/releases/tag/v0.2.0-beta.3). Open the disk image, drag **MoveBreak.app** onto **Applications**, then double-click MoveBreak in Applications. Eject the disk image after copying.
 
 The app is completely bundled. Users do not need Terminal, shell scripts, Xcode, Swift, .NET, a setup command, a runtime download, or an account. An Applications shortcut and readable installation guide are included in the disk image. A SHA-256 checksum accompanies each installer.
 
@@ -81,7 +81,7 @@ Read the [architecture](docs/ARCHITECTURE.md), [localization design](docs/LOCALI
 
 ## Verification and remaining checks
 
-[Xcode 16.4 release CI](https://github.com/moghadam-pro/MoveBreak-macos/actions/runs/37152264658) passed tests, universal packaging, and beta publication. Ten automated tests cover timer policy and localization. All five catalogs and 18 exercise translations are validated. The installed app has been used to inspect Persian RTL and translated interfaces, permission denial/recovery, and login-item registration/removal. See TESTING.md for the exact final-build evidence.
+CI checks tests, universal packaging, a packaged-app startup smoke test, and beta publication. Ten automated tests cover timer policy and localization. All five catalogs and 18 exercise translations are validated. The installed app has been used to inspect Persian RTL and translated interfaces, permission denial/recovery, and login-item registration/removal. See TESTING.md for the exact final-build evidence.
 
 Public Apple signing/notarization remains blocked by missing credentials. Actual logout/login, minimum macOS 14 runtime, Intel runtime, clean-machine download, and all physical lock/sleep scenarios still require their corresponding environments. A universal build proves both slices are present, not that an Intel Mac has been tested. Saved countdown restoration and large-history retention remain future work.
 

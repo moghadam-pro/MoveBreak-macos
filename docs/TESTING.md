@@ -1,6 +1,6 @@
 # Testing record
 
-## 0.2.0-beta.2 — 2026-10-03
+## 0.2.0-beta.3 — 2026-10-03
 
 Environment: Apple Silicon Mac, Xcode 27.0 / Swift 6.4. Deployment target is macOS 14. The installed test app is `/Applications/MoveBreak.app`.
 
@@ -46,7 +46,7 @@ The 0.2.0-beta.1 tag did not publish an installer because Xcode 16.4 rejected tr
 
 Downloaded that exact published DMG, matched its published SHA-256, mounted it read-only, verified its app signature, and confirmed arm64/x86_64 slices with macOS 14.0 minimum and SDK 15.5. The locally built beta.2 was also installed/launched, showed the correct version/Persian UI, and successfully delivered a test notification through the corrected callback.
 
-The final UI launch of the exact CI-produced artifact was interrupted because the Mac was locked and the UI tool could not unlock it. This specific smoke check remains pending; no security setting was bypassed and the installed local beta.2 was preserved.
+The exact beta.2 CI artifact crashed at startup after the user unlocked the Mac and testing resumed. Crash diagnostics identified a runtime actor-isolation assertion in the notification-settings callback. The older SDK imported the callback without Sendable annotation, causing implicit main-actor inheritance even though macOS invokes it on a background queue. Explicit Sendable callback annotations remove that unsafe inheritance. Beta.3 adds a packaged-app startup test to CI and supersedes the faulty beta.2 release. Successful compilation alone was not treated as runtime validation.
 
 ### Environment-dependent checks still required
 

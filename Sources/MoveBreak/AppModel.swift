@@ -197,7 +197,7 @@ struct LocalData: Codable {
     }
     func refreshPermissions() {
         loginStatus = SMAppService.mainApp.status
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
+        UNUserNotificationCenter.current().getNotificationSettings { @Sendable settings in
             let status = settings.authorizationStatus
             Task { @MainActor in self.notificationStatus = status }
         }
@@ -214,7 +214,7 @@ struct LocalData: Codable {
         if let url = URL(string: "x-apple.systempreferences:com.apple.Notifications-Settings.extension") { NSWorkspace.shared.open(url) }
     }
     func enableNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { allowed, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { @Sendable allowed, error in
             let message = error?.localizedDescription
             Task { @MainActor in
                 self.refreshPermissions()
@@ -228,7 +228,7 @@ struct LocalData: Codable {
         let title = text("Time to move")
         let body = test ? text("This is a MoveBreak test notification.") : exercise?.title(in: language) ?? text("Take a short break.")
         let sound = data.preferences.sound
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
+        UNUserNotificationCenter.current().getNotificationSettings { @Sendable settings in
             let status = settings.authorizationStatus
             Task { @MainActor in self.notificationStatus = status }
             let allowed = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
@@ -241,7 +241,7 @@ struct LocalData: Codable {
             content.body = body
             if sound { content.sound = .default }
             let trigger = test ? UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false) : nil
-            UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: test ? "movebreak-test" : "movebreak-reminder", content: content, trigger: trigger)) { error in
+            UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: test ? "movebreak-test" : "movebreak-reminder", content: content, trigger: trigger)) { @Sendable error in
                 if let error { Task { @MainActor in self.error = self.text("Notification unavailable: %@", error.localizedDescription) } }
                 else if test {
                     Task { @MainActor in
@@ -261,7 +261,7 @@ struct LocalData: Codable {
     // Older SDKs do not mark UNNotification Sendable. Inspect framework objects
     // inside the callback and transfer only a Bool to the main actor.
     private nonisolated static func readTestDeliveryStatus(_ completion: @escaping @Sendable (Bool) -> Void) {
-        UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
+        UNUserNotificationCenter.current().getDeliveredNotifications { @Sendable notifications in
             completion(notifications.contains { $0.request.identifier == "movebreak-test" })
         }
     }

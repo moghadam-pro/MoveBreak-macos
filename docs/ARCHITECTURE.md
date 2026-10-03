@@ -2,7 +2,7 @@
 
 ## Scope
 
-MoveBreak 0.2.0-beta.2 is an offline macOS 14+ desktop application with English, Persian (RTL), Spanish, Turkish, and German interfaces. It reuses all 18 illustrations and exercise descriptions from the Windows source. Exercise content is localized in all five supported languages. No Windows runtime, web view, third-party package, cloud account, or server is required.
+MoveBreak 0.2.0-beta.3 is an offline macOS 14+ desktop application with English, Persian (RTL), Spanish, Turkish, and German interfaces. It reuses all 18 illustrations and exercise descriptions from the Windows source. Exercise content is localized in all five supported languages. No Windows runtime, web view, third-party package, cloud account, or server is required.
 
 ## Layers
 

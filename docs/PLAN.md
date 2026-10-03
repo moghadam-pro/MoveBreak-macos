@@ -49,3 +49,7 @@ Xcode 16.4 rejected the async delivered-notification array because its SDK lacks
 ## Stage 7 — Published beta verification (2026-10-03)
 
 Beta.2 passed all Xcode 16.4 CI jobs, including universal packaging and prerelease publication. Downloaded the published DMG, matched its checksum, verified its mounted app signature and both minimum-OS architecture slices. The local beta.2 app successfully launched and delivered a test notification. The exact CI-produced app's final UI launch was interrupted by a locked Mac; requested manual unlock and documented that remaining check. Main, immutable beta tags, release artifact, README, and verification reports are available on GitHub.
+
+## Stage 8 — Exact artifact startup correction (2026-10-03)
+
+After the user unlocked the Mac, installed the exact CI-produced beta.2 artifact and found a startup crash. The older SDK callback inherited main-actor isolation but executed on a background queue. Added explicit Sendable annotations to UserNotifications callbacks, added a packaged-app startup smoke test to CI, and incremented to beta.3/build 4. The beta.2 release is marked superseded rather than rewriting its historical tag.

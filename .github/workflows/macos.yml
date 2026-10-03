@@ -21,6 +21,8 @@ jobs:
         run: |
           scripts/build-app.sh release universal
           scripts/build-dmg.sh
+      - name: Smoke test the packaged application
+        run: scripts/smoke-test-app.sh
       - uses: actions/upload-artifact@v4
         with:
           name: MoveBreak-macOS
@@ -45,3 +47,8 @@ jobs:
         run: |
           test "$GITHUB_REF_NAME" = "v$(cat VERSION)"
           gh release create "$GITHUB_REF_NAME" artifacts/*.dmg artifacts/*.dmg.sha256 --verify-tag --prerelease --title "MoveBreak $(cat VERSION)" --notes-file docs/BETA-RELEASE.md
+      - name: Mark beta 2 as superseded
+        if: github.ref_name == 'v0.2.0-beta.3'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit v0.2.0-beta.2 --prerelease --title "Superseded — MoveBreak 0.2.0-beta.2" --notes-file docs/BETA2-SUPERSEDED.md
