@@ -1,6 +1,6 @@
 # Testing record
 
-## 0.2.0-beta.1 — 2026-10-03
+## 0.2.0-beta.2 — 2026-10-03
 
 Environment: Apple Silicon Mac, Xcode 27.0 / Swift 6.4. Deployment target is macOS 14. The installed test app is `/Applications/MoveBreak.app`.
 
@@ -35,6 +35,10 @@ Environment: Apple Silicon Mac, Xcode 27.0 / Swift 6.4. Deployment target is mac
 - `notarytool history --keychain-profile MoveBreak`: no stored profile credentials.
 - `spctl --assess --type execute`: rejected the ad-hoc app, as expected without trusted Apple distribution signing.
 - Developer ID signing and notarization are **blocked**, not passed. Maintainer scripts are prepared but authenticated execution is unverified.
+
+### CI compatibility correction
+
+The 0.2.0-beta.1 tag did not publish an installer because Xcode 16.4 rejected transferring `[UNNotification]` across the main-actor boundary; the newer Xcode 27 SDK accepted it. Replaced that transfer with a synchronous callback adapter that inspects framework objects locally and returns only a Sendable Boolean through a continuation. The corrected build is 0.2.0-beta.2 (bundle build 3). Beta.1 remains an immutable historical tag, with no published release artifact.
 
 ### Environment-dependent checks still required
 

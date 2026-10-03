@@ -4,6 +4,12 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 
 ## [Unreleased]
 
+## [0.2.0-beta.2] - 2026-10-03
+
+### Fixed
+- Keep UserNotifications framework objects inside their callback and transfer only a Boolean delivery result to the main actor, supporting Swift 6 with older SDK concurrency annotations.
+- Increment the beta version/build number after the beta.1 tag failed CI before any installer was published.
+
 ## [0.2.0-beta.1] - 2026-10-03
 
 ### Stage 5 — Multilingual installable beta

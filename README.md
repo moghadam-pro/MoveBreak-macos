@@ -2,7 +2,7 @@
 
 A calm, offline movement and eye-rest reminder for people who spend long hours at a desk. This native SwiftUI adaptation of [MoveBreak by hedieh-hj](https://github.com/hedieh-hj/MoveBreak) preserves the original exercise artwork and product direction.
 
-**Current version:** 0.2.0-beta.1 · **macOS 14+** · **Apple Silicon and Intel universal app**.
+**Current version:** 0.2.0-beta.2 · **macOS 14+** · **Apple Silicon and Intel universal app**.
 
 ## Download and install
 

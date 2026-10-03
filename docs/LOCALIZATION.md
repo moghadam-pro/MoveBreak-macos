@@ -1,6 +1,6 @@
 # Localization and Persian RTL
 
-Version 0.2.0-beta.1 supports `en`, `fa`, `es`, `tr`, and `de`. Application-owned strings live in `Sources/MoveBreakCore/Resources/strings.<code>.json`; the stable English phrase is the lookup key. Exercise titles and instructions remain keyed by language in the bundled exercise catalog. Original English, Persian, and Spanish text is retained; Turkish and German translations are added for all 18 exercises.
+Version 0.2.0-beta.2 supports `en`, `fa`, `es`, `tr`, and `de`. Application-owned strings live in `Sources/MoveBreakCore/Resources/strings.<code>.json`; the stable English phrase is the lookup key. Exercise titles and instructions remain keyed by language in the bundled exercise catalog. Original English, Persian, and Spanish text is retained; Turkish and German translations are added for all 18 exercises.
 
 The first supported preferred macOS language is used before an explicit selection. A saved `languageCode` overrides that choice. The optional field preserves decoding compatibility with the existing version-1 local document. Changing languages persists immediately without restarting countdowns or clearing data.
 

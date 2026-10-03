@@ -34,10 +34,14 @@ Outcome: first native development baseline 0.1.0. Public signing/notarization is
 
 ## Stage 5 — Installable multilingual beta (2026-10-03)
 
-Implemented five-language UI and all 18 exercise translations, Persian RTL including mirrored navigation, localized numbers/dates, immediate language selection, and backwards-compatible language persistence. Added catalog/formatting tests and a resource validator. Upgraded to 0.2.0-beta.1 with independent numeric bundle build metadata.
+Implemented five-language UI and all 18 exercise translations, Persian RTL including mirrored navigation, localized numbers/dates, immediate language selection, and backwards-compatible language persistence. Added catalog/formatting tests and a resource validator. Upgraded to 0.2.0-beta.2 with independent numeric bundle build metadata.
 
 Built a universal standalone app and a drag-to-Applications DMG, installation guide, checksum, and beta artifact publishing workflow. Added optional Developer ID signing and authenticated notarization automation for maintainers. No user shell or setup runtime is required.
 
 Installed the beta in Applications and exercised notification prompt denial/recovery, status controls, and login-item registration/unregistration through macOS UI. Found and corrected delayed notification-status refresh, Persian tab order, and test-message localization during the checks. Confirmed a Persian test notification reached Notification Center. Final-build evidence is recorded in TESTING.md.
 
 Distribution trust remains externally blocked: the keychain has zero valid code-signing identities and no MoveBreak notary profile. Gatekeeper rejects the ad-hoc app. No notarization success or frictionless downloaded launch is claimed. Physical logout/login, lock/sleep matrix, minimum-OS runtime, and Intel runtime are outstanding environment-dependent checks. Automatic fullscreen detection is outside the current requested scope. The project owner plans to obtain stable/App Store security prerequisites later.
+
+## Stage 6 — CI SDK compatibility (2026-10-03)
+
+Xcode 16.4 rejected the async delivered-notification array because its SDK lacks Sendable annotations on UNNotification. Kept those framework objects inside a callback and transfer only a Boolean to the main actor. Incremented the beta version to 0.2.0-beta.2/build 3 without rewriting the failed beta.1 tag. No beta.1 release artifact was published. Revalidated locally and sent the corrected source through CI before publishing.

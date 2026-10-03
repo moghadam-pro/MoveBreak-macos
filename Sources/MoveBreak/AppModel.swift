@@ -247,13 +247,22 @@ struct LocalData: Codable {
                     Task { @MainActor in
                         self.notificationReport = "Test notification scheduled. macOS controls its display."
                         try? await Task.sleep(for: .seconds(4))
-                        let notifications = await UNUserNotificationCenter.current().deliveredNotifications()
-                        if notifications.contains(where: { $0.request.identifier == "movebreak-test" }) {
+                        let delivered = await withCheckedContinuation { continuation in
+                            Self.readTestDeliveryStatus { continuation.resume(returning: $0) }
+                        }
+                        if delivered {
                             self.notificationReport = "Test notification delivered to Notification Center."
                         }
                     }
                 }
             }
+        }
+    }
+    // Older SDKs do not mark UNNotification Sendable. Inspect framework objects
+    // inside the callback and transfer only a Bool to the main actor.
+    private nonisolated static func readTestDeliveryStatus(_ completion: @escaping @Sendable (Bool) -> Void) {
+        UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
+            completion(notifications.contains { $0.request.identifier == "movebreak-test" })
         }
     }
     func showBreak() {

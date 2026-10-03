@@ -1,6 +1,6 @@
 # Security and distribution status
 
-## Verified status for 0.2.0-beta.1
+## Verified status for 0.2.0-beta.2
 
 The application is a standalone universal `.app` distributed inside a read-only DMG. Both app and core localization bundles are embedded. Installation requires dragging the app to Applications and opening it. No end-user script, shell, runtime download, account, elevated installer, or security setting modification is included.
 
