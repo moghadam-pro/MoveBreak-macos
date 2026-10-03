@@ -1,0 +1,25 @@
+name: macOS
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode 16.4
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
+      - name: Test timer policy
+        run: swift test
+      - name: Build local app
+        run: scripts/build-app.sh release
+      - name: Archive app
+        run: ditto -c -k --sequesterRsrc --keepParent artifacts/MoveBreak.app artifacts/MoveBreak-macOS.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MoveBreak-macOS
+          path: artifacts/MoveBreak-macOS.zip

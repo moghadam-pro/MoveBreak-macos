@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "category": "Neck",
+    "duration": 40,
+    "image": "neck.png",
+    "titles": {
+      "en": "Gentle neck side stretch",
+      "fa": "کشش جانبی گردن",
+      "es": "Estiramiento lateral suave del cuello"
+    },
+    "instructions": {
+      "en": "Sit tall. Lower one ear toward the same-side shoulder without lifting the shoulder. Hold each side for 20 seconds.",
+      "fa": "صاف بنشینید. بدون بالا آوردن شانه، گوش را به سمت همان شانه ببرید؛ هر سمت را ۲۰ ثانیه نگه دارید.",
+      "es": "Siéntate con la espalda recta. Acerca una oreja al hombro del mismo lado sin levantarlo. Mantén cada lado durante 20 segundos."
+    }
+  },
+  {
+    "id": 2,
+    "category": "Shoulder",
+    "duration": 45,
+    "image": "shoulder.png",
+    "titles": {
+      "en": "Shoulder rolls",
+      "fa": "چرخش شانه‌ها",
+      "es": "Círculos de hombros"
+    },
+    "instructions": {
+      "en": "Roll both shoulders slowly backward 10 times, then forward 10 times.",
+      "fa": "شانه‌ها را ۱۰ بار آرام به عقب و سپس ۱۰ بار به جلو بچرخانید.",
+      "es": "Gira ambos hombros lentamente 10 veces hacia atrás y después 10 veces hacia delante."
+    }
+  },
+  {
+    "id": 3,
+    "category": "Back",
+    "duration": 40,
+    "image": "back.png",
+    "titles": {
+      "en": "Seated spinal twist",
+      "fa": "چرخش نشسته کمر",
+      "es": "Rotación de columna sentado"
+    },
+    "instructions": {
+      "en": "Sit tall and rotate your torso gently to one side without forcing it. Hold each side for 20 seconds.",
+      "fa": "صاف بنشینید و تنه را بدون فشار به یک سمت بچرخانید؛ هر سمت را ۲۰ ثانیه نگه دارید.",
+      "es": "Siéntate con la espalda recta y gira suavemente el torso hacia un lado sin forzar. Mantén cada lado durante 20 segundos."
+    }
+  },
+  {
+    "id": 4,
+    "category": "Wrist",
+    "duration": 40,
+    "image": "wrist.png",
+    "titles": {
+      "en": "Wrist flexor stretch",
+      "fa": "کشش مچ دست",
+      "es": "Estiramiento de flexores de muñeca"
+    },
+    "instructions": {
+      "en": "Extend one arm and use the other hand to draw the fingers gently back. Repeat on the other side.",
+      "fa": "یک دست را بکشید و با دست دیگر انگشت‌ها را آرام به عقب ببرید؛ سپس سمت دیگر را انجام دهید.",
+      "es": "Extiende un brazo y usa la otra mano para llevar suavemente los dedos hacia atrás. Repite con el otro lado."
+    }
+  },
+  {
+    "id": 5,
+    "category": "Leg",
+    "duration": 45,
+    "image": "leg.png",
+    "titles": {
+      "en": "Calf raises",
+      "fa": "بالا بردن پاشنه",
+      "es": "Elevaciones de talones"
+    },
+    "instructions": {
+      "en": "Stand beside your desk. Rise onto your toes 12 times and lower slowly, using the desk only for balance.",
+      "fa": "کنار میز بایستید، ۱۲ بار روی پنجه بالا بروید و آرام پایین بیایید؛ از میز فقط برای حفظ تعادل کمک بگیرید.",
+      "es": "Ponte de pie junto al escritorio. Sube sobre las puntas 12 veces y baja lentamente, usando el escritorio solo para mantener el equilibrio."
+    }
+  },
+  {
+    "id": 6,
+    "category": "Eye",
+    "duration": 20,
+    "image": "eye.png",
+    "titles": {
+      "en": "20-20-20 eye break",
+      "fa": "قانون ۲۰-۲۰-۲۰",
+      "es": "Descanso visual 20-20-20"
+    },
+    "instructions": {
+      "en": "Look at something at least 6 metres (20 feet) away for 20 seconds and blink naturally.",
+      "fa": "۲۰ ثانیه به جسمی در فاصله دست‌کم ۶ متر نگاه کنید و چند بار به‌آرامی پلک بزنید.",
+      "es": "Mira durante 20 segundos un objeto situado al menos a 6 metros y parpadea con naturalidad."
+    }
+  },
+  {
+    "id": 7,
+    "category": "Neck",
+    "duration": 35,
+    "image": "chin-tuck.png",
+    "titles": {
+      "en": "Chin tuck",
+      "fa": "جمع‌کردن چانه",
+      "es": "Retracción de la barbilla"
+    },
+    "instructions": {
+      "en": "Keep your eyes level and glide your head straight back, making a gentle double chin. Hold 5 seconds and repeat 6 times.",
+      "fa": "نگاه را افقی نگه دارید و سر را مستقیم به عقب ببرید تا چانه کمی جمع شود؛ ۵ ثانیه نگه دارید و ۶ بار تکرار کنید.",
+      "es": "Mantén la mirada al frente y desplaza la cabeza recta hacia atrás, formando suavemente una papada. Mantén 5 segundos y repite 6 veces."
+    }
+  },
+  {
+    "id": 8,
+    "category": "Neck",
+    "duration": 40,
+    "image": "neck-rotation.png",
+    "titles": {
+      "en": "Gentle neck rotation",
+      "fa": "چرخش آرام گردن",
+      "es": "Rotación suave del cuello"
+    },
+    "instructions": {
+      "en": "Turn your head slowly to look over one shoulder. Keep the chin level and hold each side for 15–20 seconds.",
+      "fa": "سر را آرام بچرخانید و از روی یک شانه نگاه کنید؛ چانه را هم‌سطح نگه دارید و هر سمت را ۱۵ تا ۲۰ ثانیه حفظ کنید.",
+      "es": "Gira lentamente la cabeza para mirar por encima de un hombro. Mantén la barbilla nivelada y cada lado durante 15–20 segundos."
+    }
+  },
+  {
+    "id": 9,
+    "category": "Shoulder",
+    "duration": 35,
+    "image": "chest-opener.png",
+    "titles": {
+      "en": "Standing chest opener",
+      "fa": "بازکردن قفسه سینه",
+      "es": "Apertura de pecho de pie"
+    },
+    "instructions": {
+      "en": "Stand tall, clasp your hands behind you and gently draw the shoulders back. Keep the ribs relaxed and hold for 20 seconds.",
+      "fa": "صاف بایستید، دست‌ها را پشت بدن در هم قفل کنید و شانه‌ها را آرام عقب ببرید؛ ۲۰ ثانیه نگه دارید.",
+      "es": "Ponte de pie, entrelaza las manos detrás del cuerpo y lleva suavemente los hombros hacia atrás. Mantén durante 20 segundos."
+    }
+  },
+  {
+    "id": 10,
+    "category": "Shoulder",
+    "duration": 45,
+    "image": "wall-angel.png",
+    "titles": {
+      "en": "Wall angels",
+      "fa": "حرکت فرشته روی دیوار",
+      "es": "Ángeles en la pared"
+    },
+    "instructions": {
+      "en": "Rest your back against a wall and slide bent arms slowly up and down. Stay comfortable and repeat 8 times.",
+      "fa": "پشت خود را به دیوار تکیه دهید و دست‌های خم‌شده را آرام بالا و پایین ببرید؛ در دامنه راحت ۸ بار تکرار کنید.",
+      "es": "Apoya la espalda contra una pared y desliza lentamente los brazos flexionados hacia arriba y abajo. Mantén un rango cómodo y repite 8 veces."
+    }
+  },
+  {
+    "id": 11,
+    "category": "Back",
+    "duration": 35,
+    "image": "seated-forward-fold.png",
+    "titles": {
+      "en": "Seated forward fold",
+      "fa": "خم‌شدن رو به جلو روی صندلی",
+      "es": "Flexión hacia delante sentado"
+    },
+    "instructions": {
+      "en": "With feet planted, fold forward from the hips and let your arms and head relax. Breathe slowly for 20–30 seconds.",
+      "fa": "کف پاها را روی زمین بگذارید، از لگن به جلو خم شوید و دست‌ها و سر را رها کنید؛ ۲۰ تا ۳۰ ثانیه آرام نفس بکشید.",
+      "es": "Apoya los pies en el suelo, inclínate hacia delante desde las caderas y relaja los brazos y la cabeza. Respira despacio durante 20–30 segundos."
+    }
+  },
+  {
+    "id": 12,
+    "category": "Back",
+    "duration": 30,
+    "image": "back-extension.png",
+    "titles": {
+      "en": "Standing back extension",
+      "fa": "بازکردن کمر در حالت ایستاده",
+      "es": "Extensión de espalda de pie"
+    },
+    "instructions": {
+      "en": "Place your hands on your hips and lean back only slightly while keeping your balance. Return slowly and repeat 5 times.",
+      "fa": "دست‌ها را روی لگن بگذارید و با حفظ تعادل کمی به عقب متمایل شوید؛ آرام برگردید و ۵ بار تکرار کنید.",
+      "es": "Coloca las manos en las caderas e inclínate solo un poco hacia atrás manteniendo el equilibrio. Vuelve lentamente y repite 5 veces."
+    }
+  },
+  {
+    "id": 13,
+    "category": "Wrist",
+    "duration": 30,
+    "image": "wrist-circles.png",
+    "titles": {
+      "en": "Wrist circles",
+      "fa": "چرخش مچ‌ها",
+      "es": "Círculos de muñeca"
+    },
+    "instructions": {
+      "en": "Relax your hands and draw 8 slow circles with both wrists in each direction.",
+      "fa": "دست‌ها را رها کنید و با هر دو مچ، در هر جهت ۸ دایره آرام رسم کنید.",
+      "es": "Relaja las manos y dibuja 8 círculos lentos con ambas muñecas en cada dirección."
+    }
+  },
+  {
+    "id": 14,
+    "category": "Wrist",
+    "duration": 30,
+    "image": "prayer-stretch.png",
+    "titles": {
+      "en": "Prayer wrist stretch",
+      "fa": "کشش دعایی مچ",
+      "es": "Estiramiento de muñecas en oración"
+    },
+    "instructions": {
+      "en": "Press your palms together at chest height and lower the hands slightly until you feel a gentle wrist stretch. Hold 20 seconds.",
+      "fa": "کف دست‌ها را جلوی سینه به هم بچسبانید و دست‌ها را کمی پایین ببرید تا کشش ملایمی حس شود؛ ۲۰ ثانیه نگه دارید.",
+      "es": "Junta las palmas a la altura del pecho y baja ligeramente las manos hasta notar un estiramiento suave. Mantén durante 20 segundos."
+    }
+  },
+  {
+    "id": 15,
+    "category": "Leg",
+    "duration": 40,
+    "image": "knee-extension.png",
+    "titles": {
+      "en": "Seated knee extension",
+      "fa": "بازکردن زانو روی صندلی",
+      "es": "Extensión de rodilla sentado"
+    },
+    "instructions": {
+      "en": "Sit tall and straighten one knee until the leg is comfortable. Hold 3 seconds, lower, and do 8 repetitions per side.",
+      "fa": "صاف بنشینید و یک زانو را تا محدوده راحت باز کنید؛ ۳ ثانیه نگه دارید و برای هر پا ۸ بار تکرار کنید.",
+      "es": "Siéntate con la espalda recta y estira una rodilla hasta una posición cómoda. Mantén 3 segundos, baja y haz 8 repeticiones por lado."
+    }
+  },
+  {
+    "id": 16,
+    "category": "Leg",
+    "duration": 40,
+    "image": "quad-stretch.png",
+    "titles": {
+      "en": "Standing quadriceps stretch",
+      "fa": "کشش جلوی ران",
+      "es": "Estiramiento de cuádriceps de pie"
+    },
+    "instructions": {
+      "en": "Hold a stable desk for balance, bring one heel gently toward your seat and hold the ankle. Hold each side for 20 seconds.",
+      "fa": "برای تعادل میز ثابت را بگیرید، یک پاشنه را آرام به سمت باسن ببرید و مچ پا را نگه دارید؛ هر سمت ۲۰ ثانیه.",
+      "es": "Sujeta un escritorio estable para equilibrarte, acerca suavemente un talón al glúteo y toma el tobillo. Mantén cada lado durante 20 segundos."
+    }
+  },
+  {
+    "id": 17,
+    "category": "Eye",
+    "duration": 30,
+    "image": "eye-palming.png",
+    "titles": {
+      "en": "Eye palming",
+      "fa": "استراحت چشم با کف دست",
+      "es": "Descanso ocular con las palmas"
+    },
+    "instructions": {
+      "en": "Warm your palms, close your eyes and cup your hands over them without pressure. Breathe slowly for 30 seconds.",
+      "fa": "کف دست‌ها را گرم کنید، چشم‌ها را ببندید و بدون فشار دست‌ها را روی آن‌ها گود کنید؛ ۳۰ ثانیه آرام نفس بکشید.",
+      "es": "Calienta las palmas, cierra los ojos y coloca las manos ahuecadas sobre ellos sin presionar. Respira lentamente durante 30 segundos."
+    }
+  },
+  {
+    "id": 18,
+    "category": "Eye",
+    "duration": 40,
+    "image": "focus-shift.png",
+    "titles": {
+      "en": "Near–far focus shift",
+      "fa": "تغییر تمرکز نزدیک و دور",
+      "es": "Cambio de enfoque cerca-lejos"
+    },
+    "instructions": {
+      "en": "Focus on a finger at arm’s length for 5 seconds, then a distant object for 5 seconds. Repeat 4 times without straining.",
+      "fa": "۵ ثانیه به انگشتی در فاصله یک دست و سپس ۵ ثانیه به جسمی دور نگاه کنید؛ بدون فشار ۴ بار تکرار کنید.",
+      "es": "Enfoca un dedo a la distancia del brazo durante 5 segundos y después un objeto lejano durante 5 segundos. Repite 4 veces sin forzar la vista."
+    }
+  }
+]

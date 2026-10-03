@@ -1,11 +1,5 @@
-bin/
-obj/
-.vs/
-.idea/
-.dotnet/
-.localappdata/
-.appdata/
+.build/
+.DS_Store
 artifacts/
-*.user
-*.suo
-*.db
+*.xcuserstate
+xcuserdata/
