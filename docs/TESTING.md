@@ -40,6 +40,14 @@ Environment: Apple Silicon Mac, Xcode 27.0 / Swift 6.4. Deployment target is mac
 
 The 0.2.0-beta.1 tag did not publish an installer because Xcode 16.4 rejected transferring `[UNNotification]` across the main-actor boundary; the newer Xcode 27 SDK accepted it. Replaced that transfer with a synchronous callback adapter that inspects framework objects locally and returns only a Sendable Boolean through a continuation. The corrected build is 0.2.0-beta.2 (bundle build 3). Beta.1 remains an immutable historical tag, with no published release artifact.
 
+### Published artifact verification
+
+[Beta.2 tag CI](https://github.com/moghadam-pro/MoveBreak-macos/actions/runs/37152264658) passed with Xcode 16.4: all tests, catalog validation, universal app/DMG packaging, artifact upload, and prerelease publication succeeded. [The release](https://github.com/moghadam-pro/MoveBreak-macos/releases/tag/v0.2.0-beta.2) contains the DMG and checksum.
+
+Downloaded that exact published DMG, matched its published SHA-256, mounted it read-only, verified its app signature, and confirmed arm64/x86_64 slices with macOS 14.0 minimum and SDK 15.5. The locally built beta.2 was also installed/launched, showed the correct version/Persian UI, and successfully delivered a test notification through the corrected callback.
+
+The final UI launch of the exact CI-produced artifact was interrupted because the Mac was locked and the UI tool could not unlock it. This specific smoke check remains pending; no security setting was bypassed and the installed local beta.2 was preserved.
+
 ### Environment-dependent checks still required
 
 Actual logout/login startup, all physical lock/unlock/sleep/display-sleep/session-switch transitions, clean-machine downloaded installation, minimum macOS 14 runtime, Intel runtime, multi-monitor/Spaces behavior, and a complete VoiceOver/keyboard matrix remain manual checks. The user's computer was not logged out, restarted, or locked during testing. Notification Focus and screen-sharing suppression are OS policies; global notification/security settings were not weakened.

@@ -45,3 +45,7 @@ Distribution trust remains externally blocked: the keychain has zero valid code-
 ## Stage 6 — CI SDK compatibility (2026-10-03)
 
 Xcode 16.4 rejected the async delivered-notification array because its SDK lacks Sendable annotations on UNNotification. Kept those framework objects inside a callback and transfer only a Boolean to the main actor. Incremented the beta version to 0.2.0-beta.2/build 3 without rewriting the failed beta.1 tag. No beta.1 release artifact was published. Revalidated locally and sent the corrected source through CI before publishing.
+
+## Stage 7 — Published beta verification (2026-10-03)
+
+Beta.2 passed all Xcode 16.4 CI jobs, including universal packaging and prerelease publication. Downloaded the published DMG, matched its checksum, verified its mounted app signature and both minimum-OS architecture slices. The local beta.2 app successfully launched and delivered a test notification. The exact CI-produced app's final UI launch was interrupted by a locked Mac; requested manual unlock and documented that remaining check. Main, immutable beta tags, release artifact, README, and verification reports are available on GitHub.
