@@ -1,14 +1,14 @@
 # Screenshot provenance
 
-Captured from the actual installed CI-produced MoveBreak 0.2.0-beta.3 app on 2026-10-03, on an Apple Silicon Mac. These are application-window captures, not mockups. The app uses the system's dark appearance in these captures.
+Captured from the actual installed CI-produced MoveBreak 0.2.0-beta.3 app on 2026-10-03, on an Apple Silicon Mac. These are unmodified JPEG application-window captures (1960 × 1400), not mockups. File extensions match the capture encoding. The app uses the system's dark appearance in these captures.
 
 | File | View |
 | --- | --- |
-| dashboard-en.png | English Home with offline illustration and countdown |
-| dashboard-fa.png | Persian Home with mirrored cards/navigation and localized numbers |
-| exercises-en.png | English exercise library |
-| settings-en.png | English settings and permission feedback |
-| settings-fa.png | Persian settings |
+| dashboard-en.jpg | English Home with offline illustration and countdown |
+| dashboard-fa.jpg | Persian Home with mirrored cards/navigation and localized numbers |
+| exercises-en.jpg | English exercise library |
+| settings-en.jpg | English settings and permission feedback |
+| settings-fa.jpg | Persian settings |
 
 The two-minute movement interval and two recorded completions are development test state, not the 45-minute default or measured health activity. Notification delivery feedback reflects a test. Language was temporarily changed for captures and restored to Persian; login registration and other preferences were not changed. No unrelated windows or personal records are included.
 

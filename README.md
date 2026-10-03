@@ -12,7 +12,7 @@ The app is completely bundled. Users do not need Terminal, shell scripts, Xcode,
 
 **Beta security status:** the current beta has a local ad-hoc signature and hardened runtime. It is **not Developer ID signed or Apple notarized**. macOS Gatekeeper may block a downloaded copy. A seamless downloaded first launch requires Apple distribution credentials even outside the App Store. The installer does not change security settings. See [Apple's explanation](https://support.apple.com/102445) and the [verified security status](docs/SECURITY-STATUS.md). Developer ID/notarization tooling is prepared for when credentials become available; no notarized release is claimed.
 
-![English dashboard with countdown and illustrated exercise](docs/screenshots/dashboard-en.png)
+![English dashboard with countdown and illustrated exercise](docs/screenshots/dashboard-en.jpg)
 
 *Actual beta.3 dashboard. The two-minute interval and completion counts are development test state; the default movement interval is 45 minutes.*
 
@@ -22,7 +22,7 @@ Select **English**, **فارسی**, **Español**, **Türkçe**, or **Deutsch** i
 
 Application controls, statuses, exercise titles/instructions, notifications, outcomes, categories, and wellness guidance are translated. Persian mirrors the dashboard, navigation tabs, forms, cards, history rows, and break actions; numbers and dates use the selected locale. The countdown keeps a consistent time order. macOS permission prompts and OS-generated menus follow the operating system's language.
 
-![Persian dashboard with mirrored navigation and RTL content](docs/screenshots/dashboard-fa.png)
+![Persian dashboard with mirrored navigation and RTL content](docs/screenshots/dashboard-fa.jpg)
 
 *Persian RTL in the actual installed app.*
 
@@ -40,7 +40,7 @@ Application controls, statuses, exercise titles/instructions, notifications, out
 - Optional launch at login with actual macOS registration status and a Login Items link.
 - No account, cloud service, telemetry, or external package dependency.
 
-![Offline exercise library](docs/screenshots/exercises-en.png)
+![Offline exercise library](docs/screenshots/exercises-en.jpg)
 
 *The bundled library contains 18 illustrated exercises.*
 
@@ -54,7 +54,7 @@ Enable **Launch at login** only if desired. macOS may require approval in Login 
 
 No Accessibility, Input Monitoring, Screen Recording, Full Disk Access, camera, or microphone permission is needed. Automatic fullscreen detection is outside the current requested scope. Manual presentation deferral remains available.
 
-![Settings with notification and login-item controls](docs/screenshots/settings-en.png)
+![Settings with notification and login-item controls](docs/screenshots/settings-en.jpg)
 
 *Language, work intervals, appearance, and optional macOS integrations. Screenshot feedback comes from development tests.*
 
