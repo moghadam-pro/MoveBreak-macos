@@ -48,6 +48,12 @@ Downloaded that exact published DMG, matched its published SHA-256, mounted it r
 
 The exact beta.2 CI artifact crashed at startup after the user unlocked the Mac and testing resumed. Crash diagnostics identified a runtime actor-isolation assertion in the notification-settings callback. The older SDK imported the callback without Sendable annotation, causing implicit main-actor inheritance even though macOS invokes it on a background queue. Explicit Sendable callback annotations remove that unsafe inheritance. Beta.3 adds a packaged-app startup test to CI and supersedes the faulty beta.2 release. Successful compilation alone was not treated as runtime validation.
 
+### Final beta.3 published artifact — passed
+
+[Beta.3 tag CI](https://github.com/moghadam-pro/MoveBreak-macos/actions/runs/37152838414) passed with Xcode 16.4, including all 10 tests, resource validation, universal packaging, the packaged-app startup smoke test, and prerelease publication. Beta.2 is marked superseded.
+
+Downloaded the exact [published beta.3 DMG](https://github.com/moghadam-pro/MoveBreak-macos/releases/tag/v0.2.0-beta.3) and its checksum, matched SHA-256, mounted it read-only, and verified the embedded app's strict/deep signature. Copied that app to `/Applications/MoveBreak.app` and detached the image. The published app launched successfully, loaded illustrations and the persisted Persian RTL interface, and displayed version 0.2.0-beta.3. A test notification was confirmed delivered to Notification Center without a crash. Launch-at-login registration changed to On and back to Off successfully; the original disabled preference was restored. Both arm64 and x86_64 slices are present. This verifies the actual CI artifact rather than only a locally compiled app.
+
 ### Environment-dependent checks still required
 
 Actual logout/login startup, all physical lock/unlock/sleep/display-sleep/session-switch transitions, clean-machine downloaded installation, minimum macOS 14 runtime, Intel runtime, multi-monitor/Spaces behavior, and a complete VoiceOver/keyboard matrix remain manual checks. The user's computer was not logged out, restarted, or locked during testing. Notification Focus and screen-sharing suppression are OS policies; global notification/security settings were not weakened.

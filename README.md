@@ -81,7 +81,7 @@ Read the [architecture](docs/ARCHITECTURE.md), [localization design](docs/LOCALI
 
 ## Verification and remaining checks
 
-CI checks tests, universal packaging, a packaged-app startup smoke test, and beta publication. Ten automated tests cover timer policy and localization. All five catalogs and 18 exercise translations are validated. The installed app has been used to inspect Persian RTL and translated interfaces, permission denial/recovery, and login-item registration/removal. See TESTING.md for the exact final-build evidence.
+CI checks tests, universal packaging, a packaged-app startup smoke test, and beta publication. Ten automated tests cover timer policy and localization. All five catalogs and 18 exercise translations are validated. The installed app has been used to inspect Persian RTL and translated interfaces, permission denial/recovery, and login-item registration/removal. The exact published beta.3 DMG was downloaded, checksum-verified, installed in Applications, and successfully tested for startup, Persian resources, notification delivery, and login-item registration/removal. [Release CI passed](https://github.com/moghadam-pro/MoveBreak-macos/actions/runs/37152838414) with Xcode 16.4. See TESTING.md for the exact final-build evidence.
 
 Public Apple signing/notarization remains blocked by missing credentials. Actual logout/login, minimum macOS 14 runtime, Intel runtime, clean-machine download, and all physical lock/sleep scenarios still require their corresponding environments. A universal build proves both slices are present, not that an Intel Mac has been tested. Saved countdown restoration and large-history retention remain future work.
 

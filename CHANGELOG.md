@@ -12,6 +12,10 @@ All notable changes are documented here. Native macOS versions follow Semantic V
 - Add an actual packaged-app startup smoke test to CI, in addition to compilation and policy tests.
 - Mark the beta.2 release as superseded with a startup-crash notice; retain immutable Git history.
 
+### Verified
+- Pass Xcode 16.4 CI including the packaged-app startup test and publish the universal installer.
+- Install and launch the exact downloaded beta.3 artifact; verify its checksum/signature, Persian UI/resources, test-notification delivery, and login-item registration/removal.
+
 ## [0.2.0-beta.2] - 2026-10-03
 
 ### Fixed

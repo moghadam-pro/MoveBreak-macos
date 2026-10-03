@@ -53,3 +53,8 @@ Beta.2 passed all Xcode 16.4 CI jobs, including universal packaging and prerelea
 ## Stage 8 — Exact artifact startup correction (2026-10-03)
 
 After the user unlocked the Mac, installed the exact CI-produced beta.2 artifact and found a startup crash. The older SDK callback inherited main-actor isolation but executed on a background queue. Added explicit Sendable annotations to UserNotifications callbacks, added a packaged-app startup smoke test to CI, and incremented to beta.3/build 4. The beta.2 release is marked superseded rather than rewriting its historical tag.
+
+
+## Stage 9 — Final published beta verification (2026-10-03)
+
+Beta.3/build 4 passed the complete Xcode 16.4 tag CI, including the new packaged-app startup smoke test, and published the universal DMG/checksum. Downloaded the exact release image, verified SHA-256 and its embedded app signature, installed it in Applications, and confirmed successful startup, resource loading, Persian RTL, the release version, notification delivery, and login-item registration/removal. Restored launch at login to Off. Updated README, changelog, and the testing record with this final evidence. Developer ID/notarization and the documented environment-dependent platform checks remain outstanding; no trusted distribution claim is made.
